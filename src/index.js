@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/styles.scss';
 import App from './App';
-import { BrowserRouter as Router } from 'react-router-dom';
+// import Home from './components/Home';
+// import Product from './components/ProductPage';
+// import { collections } from './helpers/data';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.querySelector('.container')
 );

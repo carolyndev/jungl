@@ -1,5 +1,6 @@
 import React from 'react';
 import Gallery from './Gallery';
+import { Link } from 'react-router-dom';
 
 const Collection = (props) => {
   const { category } = props;
@@ -14,16 +15,20 @@ const Collection = (props) => {
             )}
             <h2 className="section-title">
               {collection.title}
-              <a href="/" className="action-visible">
+              <Link
+                to={'./products/' + collection.url}
+                className="action-visible"
+              >
                 {collection.action}
-              </a>
+              </Link>
             </h2>
           </div>
 
           {collection.items && <Gallery plants={collection.items} />}
-          <a href="/" className="mobile-visible">
+
+          <Link to={'./products/' + collection.url} className="mobile-visible">
             {collection.action}
-          </a>
+          </Link>
         </section>
       ))}
     </>

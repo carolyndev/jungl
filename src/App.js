@@ -1,24 +1,41 @@
 // import React from 'react';
 import * as React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
-import Info from './components/Info';
-import Collection from './components/Collection';
+import Home from './pages/Home';
+import ProductSearch from './pages/ProductSearch';
 import { collections, guides } from './helpers/data';
 
 const App = () => {
   return (
-    <div className="container">
-      <Header />
-      <main>
-        <Hero />
-        <Collection category={collections} />
-        <Info />
-        <Collection category={guides} />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Router>
+        <Header />
+
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+
+            {collections.map((collection, idx) => (
+              <Route
+                key={idx}
+                path={'/products/' + collection.url}
+                element={<ProductSearch category={collection} />}
+              />
+            ))}
+
+            <Route
+              path={'/products/learn'}
+              element={<ProductSearch category={guides[0]} />}
+            />
+          </Routes>
+        </main>
+
+        <Footer />
+      </Router>
+    </>
   );
 };
 

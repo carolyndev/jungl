@@ -1,6 +1,8 @@
 export const collections = [
   {
     title: 'New Arrivals',
+    bannerImg:
+      'https://images.unsplash.com/photo-1530049478161-0780526964f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHBsYW50c3xlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60',
     items: [
       {
         id: 2175641,
@@ -28,6 +30,7 @@ export const collections = [
       },
     ],
     action: 'Shop Now ⟶',
+    url: 'new',
   },
   {
     title: 'Fan Favorites',
@@ -54,6 +57,7 @@ export const collections = [
       },
     ],
     action: 'Shop Now ⟶',
+    url: 'popular',
   },
 ];
 
@@ -84,6 +88,7 @@ export const guides = [
       },
     ],
     action: 'Learn More ⟶',
+    url: 'learn',
   },
 ];
 
@@ -123,5 +128,11 @@ export const footerLinks = [
       'Do Not Sell My Information',
       'Accessibility',
     ],
+  },
+];
+
+export const products = [
+  {
+    category: 'all',
   },
 ];
