@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $text;
+  background-color: $white;
+  max-width: 125rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+
+  &.open {
+    overflow-y: hidden;
+  }
+}
+
+ol,
+ul,
+li,
+button,
+h1,
+h2,
+h3,
+h4,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+ol,
+ul,
+li {
+  list-style-type: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: $green;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $text;
+  color: $green;
+}
+
+p {
+  color: $green;
+}
+
+a.button-primary {
+  position: relative;
+  background-color: $green-md;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  width: fit-content;
+  border-radius: 2rem;
+  font-family: $labels;
+  color: $white;
+  filter: brightness(1);
+  transition: filter 300ms ease;
+
+  &:hover {
+    filter: brightness(1.6);
+    cursor: pointer;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid $green-lt;
+  border-radius: 0.25rem;
+}

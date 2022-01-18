@@ -1,0 +1,41 @@
+//custom var
+$black: #333333;
+$gray: hsl(0, 0%, 93%);
+$white: #fcfcfc;
+$tan: hsl(0, 10%, 90%);
+$green: #173932;
+$green-md: #0d402a;
+$green-lt: hsl(156, 87%, 40%);
+
+$text: 'Merriweather', serif;
+$labels: 'Comfortaa', sans-serif;
+
+// fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Merriweather:wght@300;400;700&display=swap');
+
+// breakpoints
+// 640px, 1024px, 1400px
+$breakpoints-up: (
+  'medium': '40em',
+  'large': '64em',
+  'xlarge': '87.5em',
+);
+// 639px, 1023px, 1399px
+$breakpoints-down: (
+  'small': '39.9375em',
+  'medium': '63.9375em',
+  'large': '87.4375em',
+);
+
+// mixins
+@mixin breakpoints-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+@mixin breakpoints-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
