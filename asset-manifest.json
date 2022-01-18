@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/jungl/static/css/main.4024deef.css",
+    "main.js": "/jungl/static/js/main.12e3d50b.js",
+    "static/media/plant2.png": "/jungl/static/media/plant2.2116797bf12b8002d7de.png",
+    "index.html": "/jungl/index.html",
+    "main.4024deef.css.map": "/jungl/static/css/main.4024deef.css.map",
+    "main.12e3d50b.js.map": "/jungl/static/js/main.12e3d50b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4024deef.css",
+    "static/js/main.12e3d50b.js"
+  ]
+}
