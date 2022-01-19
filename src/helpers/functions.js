@@ -3,6 +3,7 @@ export const toggleMenu = (e) => {
     e.target.classList.toggle('open');
     e.target.nextElementSibling.classList.toggle('open');
     document.body.classList.toggle('open');
+    document.documentElement.classList.toggle('open');
   } else return;
 };
 

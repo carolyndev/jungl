@@ -21,7 +21,7 @@ const Header = () => {
         <div className="hamburger-menu">
           <ul className="menu-links menu-nav">
             <li>
-              <Link to="./products">Shop Plants</Link>
+              <Link to="./shop">Shop Plants</Link>
             </li>
             <li>Subscription</li>
             <li>Care Tools & Accessories</li>
@@ -41,7 +41,7 @@ const Header = () => {
         </div>
         <ul className="nav-links">
           <li>
-            <Link to="./products">Shop Plants</Link>
+            <Link to="./shop">Shop Plants</Link>
           </li>
           <li>Subscription</li>
           <li>Care Tools</li>

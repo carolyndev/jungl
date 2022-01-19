@@ -9,7 +9,7 @@ const Hero = () => {
           Welcome to the <span>jungl</span>
         </h1>
         <p>Embracing the lush life, one plant at a time.</p>
-        <Link to="./products" className="button-primary">
+        <Link to="./shop" className="button-primary">
           Shop Plants
         </Link>
       </div>

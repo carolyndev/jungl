@@ -10,7 +10,7 @@
 }
 
 .hero-content {
-  padding: 2rem 3rem 0;
+  padding: 2rem 1rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +19,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 0.5rem;
-
     font-size: 3rem;
     line-height: 1.5;
   }
@@ -36,6 +35,7 @@
 
   @include breakpoints-up(medium) {
     width: 50vw;
+    padding: 2rem 3rem 0;
   }
 }
 
@@ -59,7 +59,7 @@
 }
 
 .section {
-  padding: 2rem 3rem 0;
+  padding: 2rem 1rem 0;
   margin: 0 0 3rem;
 
   .action-visible,
@@ -80,6 +80,10 @@
       left: 0;
       background-color: $green;
     }
+  }
+
+  @include breakpoints-up(medium) {
+    padding: 2rem 3rem 0;
   }
 
   .action-visible {
@@ -186,6 +190,7 @@
   width: 100%;
   min-width: 120px;
   height: 180px;
+  border-radius: 0.125rem;
 
   @include breakpoints-up(medium) {
     height: 240px;
@@ -202,7 +207,7 @@
   position: relative;
   background-color: $tan;
   margin: 8rem 0 6rem;
-  padding: 4rem 3rem 2rem;
+  padding: 4rem 1rem 2rem;
 
   img {
     object-fit: cover;
@@ -223,9 +228,9 @@
     content: '';
     position: absolute;
     height: 2px;
-    width: calc(100% - 6rem);
+    width: calc(100% - 2rem);
     background-color: $green;
-    left: 3rem;
+    left: 1rem;
   }
 
   &::before {
@@ -244,6 +249,7 @@
     img {
       width: 50%;
       height: initial;
+      max-height: 480px;
     }
 
     &::before,
@@ -283,7 +289,7 @@
 
   .section-info {
     position: relative;
-    padding: 3rem;
+    padding: 3rem 1rem;
     width: 100%;
 
     &::before {

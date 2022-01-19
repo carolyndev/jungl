@@ -1,11 +1,15 @@
 import React from 'react';
 
 const Gallery = (props) => {
-  const { plants } = props;
+  const { plants, mapStart, mapEnd, plantGrid } = props;
 
   return (
-    <div className="collection-items">
-      {plants.map((item, idx) => (
+    <div
+      className={
+        plantGrid ? 'collection-items ' + plantGrid : 'collection-items'
+      }
+    >
+      {plants.slice(mapStart, mapEnd).map((item, idx) => (
         <div className="collection-item" key={idx}>
           <a href={'./product/' + item.id}>
             <img src={item.url} alt={item.name} className="collection-image" />

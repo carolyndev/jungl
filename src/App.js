@@ -21,13 +21,13 @@ const App = () => {
             {collections.map((collection, idx) => (
               <Route
                 key={idx}
-                path={'/products/' + collection.url}
+                path={'/shop/' + collection.url}
                 element={<ProductSearch category={collection} />}
               />
             ))}
 
             <Route
-              path={'/products/learn'}
+              path={'/learn'}
               element={<ProductSearch category={guides[0]} />}
             />
           </Routes>

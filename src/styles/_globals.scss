@@ -6,6 +6,10 @@
 
 html {
   font-size: 100%;
+  overflow-x: hidden;
+  &.open {
+    overflow-y: hidden;
+  }
 }
 
 body {

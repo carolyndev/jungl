@@ -34,6 +34,8 @@ export const collections = [
   },
   {
     title: 'Fan Favorites',
+    bannerImg:
+      'https://images.unsplash.com/photo-1592150621744-aca64f48394a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aW50ZXJpb3IlMjBwbGFudHN8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     items: [
       {
         name: 'Fiddle Leaf Fig',
@@ -134,5 +136,36 @@ export const footerLinks = [
 export const products = [
   {
     category: 'all',
+  },
+];
+
+export const filters = [
+  {
+    title: 'feature',
+    options: ['Pet Friendly', 'Low-maintenance', 'Air Purifying'],
+  },
+  {
+    title: 'light',
+    options: ['Low/Artificial', 'Bright Indirect', 'Full/Direct'],
+  },
+  {
+    title: 'price',
+    options: [
+      'Under $50',
+      '$50 - $99',
+      '$100 - $150',
+      '150 - $199',
+      '$200 and Above',
+    ],
+  },
+  {
+    title: 'size',
+    options: [
+      `X-Small (4'')`,
+      `Small (5'')`,
+      `Medium (7'')`,
+      `Large (10'')`,
+      `X-Large (14'')`,
+    ],
   },
 ];

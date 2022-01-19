@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Collection category={collections} />
+      <Collection category={collections} mapStart={0} mapEnd={4} />
       <Info />
-      <Collection category={guides} />
+      <Collection category={guides} mapStart={0} mapEnd={4} />
     </>
   );
 };
