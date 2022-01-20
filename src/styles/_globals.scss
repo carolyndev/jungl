@@ -69,11 +69,9 @@ a.button-primary {
   border-radius: 2rem;
   font-family: $labels;
   color: $white;
-  filter: brightness(1);
-  transition: filter 300ms ease;
 
   &:hover {
-    filter: brightness(1.6);
+    filter: brightness(1.5);
     cursor: pointer;
   }
 }

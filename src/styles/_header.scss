@@ -167,7 +167,7 @@ nav {
   }
 
   &.menu-about {
-    margin: auto 2rem 2rem;
+    margin: 2rem 2rem 0;
   }
 }
 
@@ -189,17 +189,18 @@ nav {
   display: none;
   font-family: $labels;
 
-  @include breakpoints-up(medium) {
-    display: flex;
-  }
-
   li {
     &:not(:last-of-type) {
-      margin-right: 2rem;
+      margin-right: 1rem;
+
+      @include breakpoints-up(large) {
+        margin-right: 2rem;
+      }
     }
   }
 
   @include breakpoints-up(medium) {
+    display: flex;
     flex: 1 0 auto;
     justify-content: center;
   }

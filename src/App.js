@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProductSearch from './pages/ProductSearch';
-import { collections, guides } from './helpers/data';
+import { collections, guides, allProducts } from './helpers/data';
 
 const App = () => {
   return (
@@ -16,16 +16,24 @@ const App = () => {
 
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
+            {/* shop all */}
+            <Route
+              exact
+              path={'/shop'}
+              element={<ProductSearch category={allProducts[0]} />}
+            />
 
+            {/* shop collections */}
             {collections.map((collection, idx) => (
               <Route
                 key={idx}
-                path={'/shop/' + collection.url}
+                path={'/' + collection.url}
                 element={<ProductSearch category={collection} />}
               />
             ))}
 
+            {/* guides */}
             <Route
               path={'/learn'}
               element={<ProductSearch category={guides[0]} />}

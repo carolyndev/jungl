@@ -4,7 +4,7 @@ import { ReactComponent as DownIcon } from '../images/svgs/down-arrow.svg';
 import { filters } from '../helpers/data';
 
 const SearchNav = (props) => {
-  const { filterOpen, setFilterOpen, toggleFilterMenu } = props;
+  const { filterOpen, toggleFilterMenu, learn } = props;
 
   const openFilterList = (e) => {
     e.target.nextElementSibling.classList.toggle('expand');

@@ -15,7 +15,7 @@ const Collection = (props) => {
             )}
             <h2 className="section-title">
               {collection.title}
-              <Link to={'./shop/' + collection.url} className="action-visible">
+              <Link to={collection.url} className="action-visible">
                 {collection.action}
               </Link>
             </h2>
@@ -29,7 +29,14 @@ const Collection = (props) => {
             />
           )}
 
-          <Link to={'./shop/' + collection.url} className="mobile-visible">
+          <Link
+            to={
+              collection.url === 'learn'
+                ? './learn'
+                : './shop/' + collection.url
+            }
+            className="mobile-visible"
+          >
             {collection.action}
           </Link>
         </section>
