@@ -29,7 +29,7 @@ const Collection = (props) => {
             />
           )}
 
-          <Link
+          {/* <Link
             to={
               collection.url === 'learn'
                 ? './learn'
@@ -38,7 +38,7 @@ const Collection = (props) => {
             className="mobile-visible"
           >
             {collection.action}
-          </Link>
+          </Link> */}
         </section>
       ))}
     </>

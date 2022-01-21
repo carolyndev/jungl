@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-import { toggleMenu } from '../helpers/functions';
+import { checkSafariMobile } from '../helpers/functions';
 
 const Header = () => {
+  const hamburgerBtn = useRef(null);
+
+  const closeMenu = (e) => {
+    if (e.key === 'Enter' || e.type === 'click') {
+      console.log(hamburgerBtn.current);
+      hamburgerBtn.current.classList.toggle('open');
+      hamburgerBtn.current.nextElementSibling.classList.toggle('open');
+      document.body.classList.toggle('open');
+      document.documentElement.classList.toggle('open');
+      checkSafariMobile();
+    } else return;
+  };
+
   return (
     <header>
       <nav>
         <div
+          ref={hamburgerBtn}
           className="hamburger"
-          onClick={toggleMenu}
-          onKeyDown={toggleMenu}
+          onClick={closeMenu}
+          onKeyDown={closeMenu}
           role="menu"
           tabIndex={0}
         >
@@ -21,12 +35,13 @@ const Header = () => {
         <div className="hamburger-menu">
           <ul className="menu-links menu-nav">
             <li>
-              <Link to="./shop">Shop Plants</Link>
+              <Link to="./shop" onClick={closeMenu} onKeyDown={closeMenu}>
+                Shop Plants
+              </Link>
             </li>
             <li>Subscription</li>
             <li>Care Tools & Accessories</li>
             <li>Gifts</li>
-            <li>Account</li>
           </ul>
           <hr></hr>
           <ul className="menu-links menu-about">
