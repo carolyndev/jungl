@@ -124,6 +124,14 @@ footer {
       margin-left: 0;
     }
   }
+  button {
+    display: block;
+    font-family: $labels;
+    color: $white;
+    background-color: transparent;
+    border: none;
+  }
+
   &.expanded {
     height: 100px;
   }
@@ -164,9 +172,6 @@ footer {
     border: none;
     border-radius: $field;
     background-color: $white;
-
-    @include breakpoints-up(medium) {
-    }
   }
 
   ::placeholder {

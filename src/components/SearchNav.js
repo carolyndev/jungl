@@ -4,9 +4,9 @@ import { ReactComponent as DownIcon } from '../images/svgs/down-arrow.svg';
 import { filters } from '../helpers/data';
 
 const SearchNav = (props) => {
-  const { filterOpen, toggleFilterMenu, learn } = props;
+  const { filterOpen, toggleFilterMenu } = props;
 
-  const openFilterList = (e) => {
+  const toggleFilterList = (e) => {
     e.target.nextElementSibling.classList.toggle('expand');
   };
 
@@ -23,7 +23,7 @@ const SearchNav = (props) => {
         <div className="filter-categories">
           {filters.map((filterType, idx) => (
             <div className="filter-type" key={idx}>
-              <h3 className="filter-title" onClick={openFilterList}>
+              <h3 className="filter-title" onClick={toggleFilterList}>
                 {filterType.title}
                 <DownIcon />
               </h3>

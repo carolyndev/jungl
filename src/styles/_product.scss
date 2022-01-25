@@ -1,0 +1,239 @@
+h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.product-container {
+  margin: 3.75rem 0 3rem;
+  min-width: 20rem;
+
+  @include breakpoints-up(medium) {
+    margin: 6.75rem 3rem 3rem;
+  }
+}
+
+.product-info {
+  max-width: 375px;
+  margin: 0 auto;
+  color: $green;
+
+  h3 {
+    font-family: $labels;
+  }
+
+  @include breakpoints-up(medium) {
+    max-width: initial;
+    display: flex;
+    width: 100%;
+  }
+}
+
+.product-image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1rem;
+  max-height: 30rem;
+
+  @include breakpoints-up(medium) {
+    max-width: 50vw;
+    width: calc(50vw - 6rem);
+    max-height: initial;
+  }
+}
+
+.product-options {
+  width: 100%;
+  padding: 0 1rem;
+
+  @include breakpoints-up(medium) {
+    padding: 0 0 0 clamp(1rem, 5vw, 3rem);
+  }
+
+  @include breakpoints-up(large) {
+    padding: 0 clamp(1rem, 5vw, 3rem);
+  }
+}
+
+.product-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+
+  @include breakpoints-up(medium) {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.product-botanic {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.product-details {
+  font-family: $labels;
+  margin-bottom: 2rem;
+
+  p {
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.product-quantity {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  select {
+    height: auto;
+    padding: 0.75rem 0.25rem;
+    margin-right: 1rem;
+    border-radius: $field;
+    font-family: $labels;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+}
+
+.add-to-cart {
+  border: none;
+  width: 100%;
+  padding: 0.75rem 0.5rem;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.product-color {
+  margin-bottom: 2rem;
+  font-family: $labels;
+
+  .color-option {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+
+    @include breakpoints-up(medium) {
+      justify-content: flex-start;
+    }
+  }
+
+  .color-select {
+    display: none;
+    width: 0;
+    height: 0;
+
+    &:checked ~ .color-custom {
+      -webkit-box-shadow: 0px 0px 0px 2px $white, 0px 0px 0px 4px $green-md;
+      box-shadow: 0px 0px 0px 2px $white, 0px 0px 0px 4px $green-md;
+    }
+  }
+
+  .color-label {
+    display: block;
+    position: relative;
+    width: 4rem;
+    height: 100%;
+    font-family: $labels;
+    font-size: 1rem;
+    color: $green;
+    text-transform: capitalize;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .color-custom {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto 0.75rem;
+    border-radius: 50%;
+
+    &.color-stone {
+      background-color: $tan;
+    }
+
+    &.color-slate {
+      background-color: #919191;
+    }
+
+    &.color-sienna {
+      background-color: #dd6e4d;
+    }
+    &.color-sage {
+      background-color: #8fbc8b;
+    }
+  }
+}
+
+.product-size {
+  margin-bottom: 2rem;
+
+  label,
+  input {
+    cursor: pointer;
+  }
+
+  label {
+    display: inline-block;
+    position: relative;
+    margin-right: 1.5rem;
+    font-family: $labels;
+    font-size: 1rem;
+  }
+
+  input {
+    margin-right: 0.5rem;
+    visibility: hidden;
+    opacity: 0;
+
+    &:checked ~ .size-custom {
+      background-color: $green-md;
+      -webkit-box-shadow: 0px 0px 0px 2px $white, 0px 0px 0px 4px $green-md;
+      box-shadow: 0px 0px 0px 2px $white, 0px 0px 0px 4px $green-md;
+    }
+  }
+
+  .size-custom {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid $green;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    border-radius: 50%;
+  }
+}
+
+.product-care {
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.75rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    font-family: $labels;
+    margin-bottom: 0.5rem;
+
+    & span:first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

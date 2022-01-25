@@ -6,7 +6,15 @@ import { checkSafariMobile } from '../helpers/functions';
 import { guides } from '../helpers/data';
 
 const ProductSearch = (props) => {
-  const { category } = props;
+  const {
+    category,
+    selected,
+    setSelected,
+    itemToAdd,
+    setItemToAdd,
+    cartItems,
+    setCartItems,
+  } = props;
   const desktopWidth = window.matchMedia('(max-width: 40rem)');
 
   const [filterOpen, setFilterOpen] = useState(false);
@@ -70,14 +78,17 @@ const ProductSearch = (props) => {
         break;
       case 'low':
         console.log('sorting by: LOW');
-        sortedData.items.sort((a, b) => a.price - b.price);
+        sortedData.items.sort((a, b) => a.price[0] - b.price[0]);
         setSortedData({ ...sortedData });
         break;
       case 'high':
         console.log('sorting by: HIGH');
-        sortedData.items.sort((a, b) => b.price - a.price);
+        sortedData.items.sort((a, b) => b.price[0] - a.price[0]);
         setSortedData({ ...sortedData });
         break;
+
+      default:
+        sortedData.items.sort((a, b) => a.featured - b.featured);
     }
   };
 
@@ -117,6 +128,10 @@ const ProductSearch = (props) => {
           plantGrid={'plant-grid'}
           sortedData={sortedData}
           setSortedData={setSortedData}
+          selected={selected}
+          setSelected={setSelected}
+          itemToAdd={itemToAdd}
+          setItemToAdd={setItemToAdd}
         />
       </div>
     </div>

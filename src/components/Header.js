@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-
 import { checkSafariMobile } from '../helpers/functions';
+import { ReactComponent as BagIcon } from '../images/svgs/bag.svg';
 
-const Header = () => {
+const Header = (props) => {
+  const { cartItems, setCartItems } = props;
+
   const hamburgerBtn = useRef(null);
-
-  const closeMenu = (e) => {
+  const toggleMenu = (e) => {
     if (e.key === 'Enter' || e.type === 'click') {
-      console.log(hamburgerBtn.current);
       hamburgerBtn.current.classList.toggle('open');
       hamburgerBtn.current.nextElementSibling.classList.toggle('open');
       document.body.classList.toggle('open');
@@ -23,8 +23,8 @@ const Header = () => {
         <div
           ref={hamburgerBtn}
           className="hamburger"
-          onClick={closeMenu}
-          onKeyDown={closeMenu}
+          onClick={toggleMenu}
+          onKeyDown={toggleMenu}
           role="menu"
           tabIndex={0}
         >
@@ -35,13 +35,13 @@ const Header = () => {
         <div className="hamburger-menu">
           <ul className="menu-links menu-nav">
             <li>
-              <Link to="./shop" onClick={closeMenu} onKeyDown={closeMenu}>
+              <Link to="./shop" onClick={toggleMenu} onKeyDown={toggleMenu}>
                 Shop Plants
               </Link>
             </li>
-            <li>Subscription</li>
             <li>Care Tools & Accessories</li>
             <li>Gifts</li>
+            <li>Subscription</li>
           </ul>
           <hr></hr>
           <ul className="menu-links menu-about">
@@ -58,19 +58,14 @@ const Header = () => {
           <li>
             <Link to="./shop">Shop Plants</Link>
           </li>
-          <li>Subscription</li>
           <li>Care Tools</li>
           <li>Gifts</li>
+          <li>Subscription</li>
         </ul>
         <div className="cart">
+          <span value={cartItems.length}>{cartItems.length}</span>
           <Link to="/cart">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-            </svg>
+            <BagIcon />
           </Link>
         </div>
       </nav>

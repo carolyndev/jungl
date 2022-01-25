@@ -3,7 +3,7 @@ import Gallery from './Gallery';
 import { Link } from 'react-router-dom';
 
 const Collection = (props) => {
-  const { category, mapStart, mapEnd } = props;
+  const { category, mapStart, mapEnd, selected, setSelected } = props;
 
   return (
     <>
@@ -26,19 +26,10 @@ const Collection = (props) => {
               plants={collection.items}
               mapStart={mapStart}
               mapEnd={mapEnd}
+              selected={selected}
+              setSelected={setSelected}
             />
           )}
-
-          {/* <Link
-            to={
-              collection.url === 'learn'
-                ? './learn'
-                : './shop/' + collection.url
-            }
-            className="mobile-visible"
-          >
-            {collection.action}
-          </Link> */}
         </section>
       ))}
     </>

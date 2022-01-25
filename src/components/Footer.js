@@ -33,7 +33,9 @@ const Footer = () => {
 
             <ul className="footer-list">
               {type.links.map((link, idx) => (
-                <li key={idx}>{link}</li>
+                <button key={idx}>
+                  <li>{link}</li>
+                </button>
               ))}
             </ul>
           </div>

@@ -60,7 +60,8 @@ p {
   color: $green;
 }
 
-a.button-primary {
+a.button-primary,
+.add-to-cart {
   position: relative;
   background-color: $green-md;
   padding: 1rem 1.5rem;
