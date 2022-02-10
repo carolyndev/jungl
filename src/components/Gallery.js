@@ -26,7 +26,9 @@ const Gallery = (props) => {
           {item.price ? (
             <Link
               to={'/item/' + item.featured}
-              onClick={() => setSelected(item)}
+              onClick={() => {
+                setSelected(item);
+              }}
             >
               <img
                 src={item.url}

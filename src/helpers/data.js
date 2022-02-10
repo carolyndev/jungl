@@ -116,6 +116,7 @@ export const collections = [
         sizes: ['Small', 'Medium'],
       },
       {
+        id: ['207s', '207m'],
         name: 'Mini Monstera',
         botanicalName: 'Rhaphidophora tetrasperma',
         tags: ['easy maintenance', 'low light'],
@@ -126,10 +127,11 @@ export const collections = [
         sizes: ['Small', 'Medium'],
       },
       {
+        id: ['208m'],
         name: 'Prayer Plant',
         botanicalName: 'Maranta leuconeura var. erythroneura',
         tags: ['bright indirect', 'pet-friendly'],
-        featured: 207,
+        featured: 208,
         url: 'https://images.unsplash.com/photo-1639756534497-d3271888337c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MTV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         price: [38],
         new: false,
@@ -145,6 +147,7 @@ export const collections = [
       'https://images.unsplash.com/photo-1530049478161-0780526964f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHBsYW50c3xlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60',
     items: [
       {
+        id: ['301l'],
         name: 'Ficus Rubber Tree',
         botanicalName: 'Ficus elastica',
         tags: ['easy maintenance'],
@@ -155,6 +158,7 @@ export const collections = [
         sizes: ['Large'],
       },
       {
+        id: ['303s', '303m'],
         name: `Bird's Nest Fern`,
         botanicalName: 'Asplenium nidus',
         tags: ['low light'],
@@ -165,6 +169,7 @@ export const collections = [
         sizes: ['Small', 'Medium'],
       },
       {
+        id: ['303s'],
         name: 'Pilea peperomioides',
         botanicalName: 'Pilea peperomioides',
         tags: ['bright indirect', 'pet-friendly'],
@@ -175,6 +180,7 @@ export const collections = [
         sizes: ['Small'],
       },
       {
+        id: ['304m'],
         name: 'ZZ Plant',
         botanicalName: 'Zamioculcas zamiifolia',
         tags: ['bright indirect', 'easy maintenance'],
@@ -185,6 +191,7 @@ export const collections = [
         sizes: ['Medium'],
       },
       {
+        id: ['305s', '305l'],
         name: 'Parlor Palm',
         botanicalName: 'Chamaedorea elegans',
         tags: ['easy maintenance', 'air-purifying'],
@@ -259,6 +266,7 @@ export const allProducts = [
     title: 'Browse All',
     items: [
       {
+        id: ['101m', '101xl'],
         name: 'Umbrella Tree',
         botanicalName: 'Schefflera Arboricola',
         tags: ['easy maintenance'],
@@ -269,6 +277,7 @@ export const allProducts = [
         sizes: ['Medium', 'X-Large'],
       },
       {
+        id: ['102s', '102m'],
         name: 'Philodendron Green',
         botanicalName: 'Philodendron cordatum',
         tags: ['easy maintenance'],
@@ -279,6 +288,7 @@ export const allProducts = [
         sizes: ['Small', 'Medium'],
       },
       {
+        id: ['103s', '103m'],
         name: 'Golden Pothos',
         botanicalName: 'Epipremnum aureum',
         tags: ['easy maintenance', 'low light'],
@@ -289,6 +299,7 @@ export const allProducts = [
         sizes: ['Small', 'Medium'],
       },
       {
+        id: ['104m'],
         name: 'Calathea Rattlesnake',
         botanicalName: 'Calathea lancifolia',
         tags: ['easy maintenance'],
@@ -299,6 +310,7 @@ export const allProducts = [
         sizes: ['Medium'],
       },
       {
+        id: ['106l'],
         name: 'Sansevieria Moonshine',
         botanicalName: `Sansevieria trifasciata 'Moonshine'`,
         tags: ['easy maintenance', 'low light', 'air purifying'],
@@ -309,10 +321,11 @@ export const allProducts = [
         sizes: ['Large'],
       },
       {
+        id: ['106m', '106l'],
         name: 'Ficus Benjamina',
         botanicalName: `Ficus benjamina'`,
         tags: ['bright indirect', 'tree'],
-        featured: 105,
+        featured: 106,
         url: 'https://images.unsplash.com/photo-1596547609713-821db6524310?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmljdXMlMjBiZW5qYW1pbmF8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
         price: [83, 103],
         new: false,

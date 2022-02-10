@@ -1,10 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { checkSafariMobile } from '../helpers/functions';
 import { ReactComponent as BagIcon } from '../images/svgs/bag.svg';
 
 const Header = (props) => {
-  const { cartItems, setCartItems } = props;
+  const [numItems, setNumItems] = useState(0);
+  const {
+    cartItems,
+    setCartItems,
+    cartSideOpen,
+    setCartSideOpen,
+    toggleCartSide,
+  } = props;
 
   const hamburgerBtn = useRef(null);
   const toggleMenu = (e) => {
@@ -16,6 +23,14 @@ const Header = (props) => {
       checkSafariMobile();
     } else return;
   };
+
+  useEffect(() => {
+    let totalItems = 0;
+    cartItems.forEach((item) => {
+      totalItems += item.quantity;
+    });
+    setNumItems(totalItems);
+  }, [cartItems]);
 
   return (
     <header>
@@ -62,11 +77,9 @@ const Header = (props) => {
           <li>Gifts</li>
           <li>Subscription</li>
         </ul>
-        <div className="cart">
-          <span value={cartItems.length}>{cartItems.length}</span>
-          <Link to="/cart">
-            <BagIcon />
-          </Link>
+        <div className="cart" onClick={toggleCartSide}>
+          <span value={numItems}>{numItems}</span>
+          <BagIcon />
         </div>
       </nav>
     </header>

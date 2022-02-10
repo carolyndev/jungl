@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ReactComponent as FilterIcon } from '../images/svgs/filter.svg';
 
 const Select = (props) => {

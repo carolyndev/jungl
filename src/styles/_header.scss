@@ -47,6 +47,8 @@ nav {
     z-index: 2;
 
     span {
+      background-color: $white;
+
       &:nth-of-type(2) {
         opacity: 0;
       }
@@ -102,8 +104,8 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $tan;
-    color: $green;
+    // background-color: $tan;
+    // color: $green;
     font-size: 2rem;
     width: inherit;
     height: 3.75rem;
@@ -116,7 +118,7 @@ nav {
 }
 
 .hamburger-menu hr {
-  width: calc(100vw - 4rem);
+  width: calc(100vw - 2rem);
 }
 
 .menu-links {
@@ -139,11 +141,11 @@ nav {
   }
 
   &.menu-nav {
-    margin: 5.75rem 2rem 1rem;
+    margin: 5.75rem 1rem 1rem;
   }
 
   &.menu-about {
-    margin: 2rem 2rem 0;
+    margin: 2rem 1rem 0;
   }
 }
 
@@ -212,6 +214,8 @@ nav {
 
 .cart {
   position: relative;
+  cursor: pointer;
+
   svg {
     width: 1.5rem;
     height: 1.5rem;

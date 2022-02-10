@@ -5,7 +5,7 @@ import Collection from '../components/Collection';
 import { collections, guides } from '../helpers/data';
 
 const Home = (props) => {
-  const { selected, setSelected } = props;
+  const { selected, setSelected, itemToAdd, setItemToAdd } = props;
 
   return (
     <>
@@ -16,6 +16,8 @@ const Home = (props) => {
         mapEnd={4}
         selected={selected}
         setSelected={setSelected}
+        itemToAdd={itemToAdd}
+        setItemToAdd={setItemToAdd}
       />
       <Info />
       <Collection

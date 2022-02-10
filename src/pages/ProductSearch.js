@@ -14,6 +14,7 @@ const ProductSearch = (props) => {
     setItemToAdd,
     cartItems,
     setCartItems,
+    setCartSideOpen,
   } = props;
   const desktopWidth = window.matchMedia('(max-width: 40rem)');
 
@@ -60,6 +61,7 @@ const ProductSearch = (props) => {
   const handleMenuClose = () => {
     if (desktopWidth.matches) return;
     setFilterOpen(false);
+    setCartSideOpen(false);
     document.body.classList.remove('open');
     document.documentElement.classList.remove('open');
   };

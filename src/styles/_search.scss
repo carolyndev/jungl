@@ -192,16 +192,26 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 0.5rem;
-  // margin-bottom: 0.5rem;
-
+  margin-bottom: 0.5rem;
   border-bottom: 2px solid $green-md;
 
   h2 {
     font-size: 1.25rem;
   }
+
+  .filter-closeBtn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    @include breakpoints-up(medium) {
+      display: none;
+      pointer-events: none;
+    }
+  }
 }
+
 .filter-categories {
-  max-height: 75vh;
+  max-height: 100vh;
   overflow-y: scroll;
 
   @include breakpoints-up(medium) {
@@ -255,7 +265,7 @@
 
 .filter-confirm {
   height: 3.75rem;
-  margin: 1rem 0 0;
+  margin: auto 0 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -265,7 +275,7 @@
     font-family: $labels;
     padding: 0.75rem 1rem;
     cursor: pointer;
-    border-radius: $field;
+    border-radius: 2rem;
     border: 1px solid $green-md;
 
     &:first-of-type {

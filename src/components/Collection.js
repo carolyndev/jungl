@@ -3,7 +3,15 @@ import Gallery from './Gallery';
 import { Link } from 'react-router-dom';
 
 const Collection = (props) => {
-  const { category, mapStart, mapEnd, selected, setSelected } = props;
+  const {
+    category,
+    mapStart,
+    mapEnd,
+    selected,
+    setSelected,
+    itemToAdd,
+    setItemToAdd,
+  } = props;
 
   return (
     <>
@@ -28,6 +36,8 @@ const Collection = (props) => {
               mapEnd={mapEnd}
               selected={selected}
               setSelected={setSelected}
+              itemToAdd={itemToAdd}
+              setItemToAdd={setItemToAdd}
             />
           )}
         </section>

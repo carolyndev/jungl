@@ -16,7 +16,7 @@ const SearchNav = (props) => {
         <div className="filter-nav-header">
           <h2>Filter By:</h2>
 
-          <button className="filterBtn" onClick={toggleFilterMenu}>
+          <button className="filter-closeBtn" onClick={toggleFilterMenu}>
             <CloseIcon width="24px" height="24px" />
           </button>
         </div>
