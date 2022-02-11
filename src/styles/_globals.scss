@@ -60,10 +60,22 @@ p {
   color: $green;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 a.button-primary,
 .add-to-cart {
   position: relative;
-  background-color: $green-md;
+  background: linear-gradient(
+    45deg,
+    #0d402a 0%,
+    #0d402a 50%,
+    #173932 80%,
+    #173932 100%
+  );
   padding: 1rem 1.5rem;
   margin-bottom: 2rem;
   width: fit-content;

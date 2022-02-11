@@ -4,13 +4,13 @@ import { checkSafariMobile } from '../helpers/functions';
 import { ReactComponent as BagIcon } from '../images/svgs/bag.svg';
 
 const Header = (props) => {
-  const [numItems, setNumItems] = useState(0);
   const {
     cartItems,
     setCartItems,
     cartSideOpen,
     setCartSideOpen,
     toggleCartSide,
+    numItems,
   } = props;
 
   const hamburgerBtn = useRef(null);
@@ -23,14 +23,6 @@ const Header = (props) => {
       checkSafariMobile();
     } else return;
   };
-
-  useEffect(() => {
-    let totalItems = 0;
-    cartItems.forEach((item) => {
-      totalItems += item.quantity;
-    });
-    setNumItems(totalItems);
-  }, [cartItems]);
 
   return (
     <header>

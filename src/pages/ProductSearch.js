@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from '../components/Select';
 import SearchNav from '../components/SearchNav';
 import Gallery from '../components/Gallery';
-import { checkSafariMobile } from '../helpers/functions';
+import { checkSafariMobile, removeScrollBlock } from '../helpers/functions';
 import { guides } from '../helpers/data';
 
 const ProductSearch = (props) => {
@@ -14,6 +14,7 @@ const ProductSearch = (props) => {
     setItemToAdd,
     cartItems,
     setCartItems,
+    cartSideOpen,
     setCartSideOpen,
   } = props;
   const desktopWidth = window.matchMedia('(max-width: 40rem)');
@@ -38,7 +39,6 @@ const ProductSearch = (props) => {
   // scroll top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(data);
   }, []);
 
   // sort items on option select
@@ -62,8 +62,7 @@ const ProductSearch = (props) => {
     if (desktopWidth.matches) return;
     setFilterOpen(false);
     setCartSideOpen(false);
-    document.body.classList.remove('open');
-    document.documentElement.classList.remove('open');
+    removeScrollBlock();
   };
 
   const handleSort = () => {

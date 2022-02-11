@@ -10,12 +10,32 @@ import ProductSearch from './pages/ProductSearch';
 import ProductPage from './pages/ProductPage';
 import CartSide from './components/CartSide';
 import { collections, guides, allProducts } from './helpers/data';
+import { removeScrollBlock } from './helpers/functions';
 
 const App = () => {
   const [selected, setSelected] = useState({});
   const [itemToAdd, setItemToAdd] = useState({});
   const [cartItems, setCartItems] = useState([]);
   const [cartSideOpen, setCartSideOpen] = useState(false);
+  const [cartTotal, setCartTotal] = useState(0);
+  const [numItems, setNumItems] = useState(0);
+
+  useEffect(() => {
+    let totalItems = 0;
+    cartItems.forEach((item) => {
+      totalItems += item.quantity;
+    });
+    setNumItems(totalItems);
+  }, [cartItems]);
+
+  useEffect(() => {
+    let arr = [];
+    cartItems.map((item) => {
+      arr.push(item.quantity * item.unitPrice);
+    });
+    let sum = arr.reduce((prev, a) => prev + a, 0);
+    setCartTotal(sum);
+  }, [cartItems]);
 
   useEffect(() => {
     getLocalSelected();
@@ -60,9 +80,17 @@ const App = () => {
   };
 
   const toggleCartSide = () => {
+    if (window.location.pathname.includes('cart')) {
+      return;
+    }
     setCartSideOpen(!cartSideOpen);
     document.body.classList.toggle('open');
     document.documentElement.classList.toggle('open');
+  };
+
+  const closeCartSide = () => {
+    setCartSideOpen(false);
+    removeScrollBlock();
   };
 
   return (
@@ -74,6 +102,7 @@ const App = () => {
           cartSideOpen={cartSideOpen}
           setCartSideOpen={setCartSideOpen}
           toggleCartSide={toggleCartSide}
+          numItems={numItems}
         />
 
         <main>
@@ -91,15 +120,6 @@ const App = () => {
                   cartItems={cartItems}
                   setCartItems={setCartItems}
                 />
-              }
-            />
-            {/* cart */}
-
-            <Route
-              exact
-              path={'cart'}
-              element={
-                <CartPage cartItems={cartItems} setCartItems={setCartItems} />
               }
             />
             {/* shop all */}
@@ -186,6 +206,26 @@ const App = () => {
                 />
               }
             />
+
+            <Route
+              exact
+              path={'/cart'}
+              element={
+                <CartPage
+                  cartItems={cartItems}
+                  setCartItems={setCartItems}
+                  selected={selected}
+                  setSelected={setSelected}
+                  itemToAdd={itemToAdd}
+                  setItemToAdd={setItemToAdd}
+                  cartSideOpen={cartSideOpen}
+                  setCartSideOpen={setCartSideOpen}
+                  closeCartSide={closeCartSide}
+                  cartTotal={cartTotal}
+                  numItems={numItems}
+                />
+              }
+            />
           </Routes>
 
           <CartSide
@@ -194,6 +234,8 @@ const App = () => {
             cartItems={cartItems}
             setCartItems={setCartItems}
             toggleCartSide={toggleCartSide}
+            closeCartSide={closeCartSide}
+            cartTotal={cartTotal}
           />
         </main>
 

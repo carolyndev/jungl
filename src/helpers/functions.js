@@ -15,3 +15,8 @@ export const checkSafariMobile = () => {
     document.ontouchmove = (e) => true;
   }
 };
+
+export const removeScrollBlock = () => {
+  document.body.classList.remove('open');
+  document.documentElement.classList.remove('open');
+};

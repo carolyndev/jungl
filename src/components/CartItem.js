@@ -4,7 +4,7 @@ const CartItem = (props) => {
   const { item, cartItems, setCartItems } = props;
 
   const subtractOne = (e) => {
-    if (item.quantity == 1) {
+    if (item.quantity === 1) {
       return;
     }
 
@@ -35,19 +35,33 @@ const CartItem = (props) => {
     );
   };
 
-  // setTodos(todos.filter((el) => el.id !== todo.id));
   const removeItem = (e) => {
     setCartItems(cartItems.filter((el) => el.id !== item.id));
   };
 
   return (
     <div className="cart-item" key={item.id}>
-      <img className="cart-item-image" src={item.url} alt={item.name} />
+      <img
+        className={
+          window.location.pathname.includes('cart')
+            ? 'cart-page-image'
+            : 'cart-item-image'
+        }
+        src={item.url}
+        alt={item.name}
+      />
 
       <div className="cart-item-info">
-        <div className="cart-item-details">
+        <div
+          className={
+            window.location.pathname.includes('cart')
+              ? 'cart-page-details'
+              : 'cart-item-details'
+          }
+        >
           <h3>
-            {item.name} <span>${item.unitPrice * item.quantity}</span>
+            {item.name} - {item.size}
+            <span>${item.unitPrice * item.quantity}</span>
           </h3>
 
           <div className="cart-item-color">
@@ -55,7 +69,13 @@ const CartItem = (props) => {
           </div>
         </div>
 
-        <div className="cart-item-actions">
+        <div
+          className={
+            window.location.pathname.includes('cart')
+              ? 'cart-page-actions'
+              : 'cart-item-actions'
+          }
+        >
           <div className="cart-item-quantity">
             <button onClick={subtractOne}>-</button>
             <p>{item.quantity}</p>

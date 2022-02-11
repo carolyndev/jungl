@@ -26,12 +26,11 @@ const ProductPage = (props) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(selected);
+    // console.log(selected);
     loadProductPage();
   }, []);
 
   const loadProductPage = () => {
-    console.log('product page');
     setItemToAdd({
       ...itemToAdd,
       name: selected.name,
@@ -45,7 +44,6 @@ const ProductPage = (props) => {
   };
 
   const updateAddQuantity = (e) => {
-    console.log(e.target);
     setItemToAdd({ ...itemToAdd, quantity: parseInt(e.target.value) });
   };
 
