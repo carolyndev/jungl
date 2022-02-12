@@ -34,12 +34,14 @@ const ProductPage = (props) => {
     setItemToAdd({
       ...itemToAdd,
       name: selected.name,
-      color: 'stone',
+      color: selected.color ? selected.color[0] : planterColors[0],
       quantity: 1,
       unitPrice: selected.price[0],
       size: selected.sizes[0],
       url: selected.url,
-      id: `${selected.featured}-${selected.sizes[0]}`,
+      id: `${selected.featured}-${selected.sizes[0]}-${
+        selected.color ? selected.color[0] : planterColors[0]
+      }`,
     });
   };
 
@@ -48,7 +50,11 @@ const ProductPage = (props) => {
   };
 
   const updateAddColor = (e) => {
-    setItemToAdd({ ...itemToAdd, color: e.target.value });
+    setItemToAdd({
+      ...itemToAdd,
+      color: e.target.value,
+      id: `${selected.featured}-${e.target.value}-${e.target.value}`,
+    });
   };
 
   const updateAddSize = (e) => {
@@ -57,7 +63,7 @@ const ProductPage = (props) => {
       ...itemToAdd,
       size: e.target.value,
       unitPrice: selected.price[priceIdx],
-      id: `${selected.featured}-${e.target.value}`,
+      id: `${selected.featured}-${e.target.value}-${itemToAdd.color}`,
     });
   };
 
@@ -101,41 +107,74 @@ const ProductPage = (props) => {
             <h3 className="product-botanic">{selected.botanicalName}</h3>
 
             <div className="product-color" onChange={updateAddColor}>
-              <h3>Planter Color</h3>
-              <div className="color-option">
-                {planterColors.map((color, idx) => (
-                  <label
-                    htmlFor={'color-' + color}
-                    className="color-label"
-                    key={idx}
-                  >
-                    {color === 'stone' ? (
-                      <input
-                        type="radio"
-                        name="planter-color"
-                        className="color-select"
-                        id="color-stone"
-                        value="stone"
-                        defaultChecked="checked"
-                      />
-                    ) : (
-                      <input
-                        type="radio"
-                        name="planter-color"
-                        className="color-select"
-                        id={'color-' + color}
-                        value={color}
-                      />
-                    )}
-                    <span className={'color-custom color-' + color}></span>
-                    {color}
-                  </label>
-                ))}
+              <h3>{selected.botanicalName ? 'Planter Color' : 'Color'}</h3>
+              <div
+                className={
+                  'color-option ' + (selected.botanicalName ? '' : 'flex-start')
+                }
+              >
+                {selected.botanicalName
+                  ? planterColors.map((color, idx) => (
+                      <label
+                        htmlFor={'color-' + color}
+                        className="color-label"
+                        key={idx}
+                      >
+                        {color === 'stone' ? (
+                          <input
+                            type="radio"
+                            name="planter-color"
+                            className="color-select"
+                            id="color-stone"
+                            value="stone"
+                            defaultChecked="checked"
+                          />
+                        ) : (
+                          <input
+                            type="radio"
+                            name="planter-color"
+                            className="color-select"
+                            id={'color-' + color}
+                            value={color}
+                          />
+                        )}
+                        <span className={'color-custom color-' + color}></span>
+                        {color}
+                      </label>
+                    ))
+                  : selected.color.map((color, idx) => (
+                      <label
+                        htmlFor={'color-' + color}
+                        className="color-label"
+                        key={idx}
+                      >
+                        {color === selected.color[0] ? (
+                          <input
+                            type="radio"
+                            name="planter-color"
+                            className="color-select"
+                            id={'color-' + color}
+                            value={color}
+                            defaultChecked="checked"
+                          />
+                        ) : (
+                          <input
+                            type="radio"
+                            name="planter-color"
+                            className="color-select"
+                            id={'color-' + color}
+                            value={color}
+                          />
+                        )}
+                        <span className={'color-custom color-' + color}></span>
+                        {color}
+                      </label>
+                    ))}
               </div>
             </div>
 
             <div className="product-size" onChange={updateAddSize}>
-              <h3>Plant Size</h3>
+              <h3>{selected.botanicalName ? 'Plant Size' : 'Size'}</h3>
               {selected.sizes &&
                 selected.sizes.map((size, idx) => (
                   <label
@@ -188,11 +227,11 @@ const ProductPage = (props) => {
               </p>
             </div>
 
-            <div className="product-care">
-              <h3>Plant Care</h3>
-              <ul>
-                {selected.tags &&
-                  selected.tags.map((tag, idx) => (
+            {selected.tags && (
+              <div className="product-care">
+                <h3>Plant Care</h3>
+                <ul>
+                  {selected.tags.map((tag, idx) => (
                     <li key={idx}>
                       {tag === 'easy maintenance' && <EasyIcon />}
                       {tag === 'low light' && <LowIcon />}
@@ -204,8 +243,9 @@ const ProductPage = (props) => {
                       <span>{tag}</span>
                     </li>
                   ))}
-              </ul>
-            </div>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       )}

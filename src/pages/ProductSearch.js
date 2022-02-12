@@ -39,6 +39,7 @@ const ProductSearch = (props) => {
   // scroll top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log(data);
   }, []);
 
   // sort items on option select
@@ -121,7 +122,6 @@ const ProductSearch = (props) => {
         ) : (
           <></>
         )}
-
         <Gallery
           plants={sortedData.items}
           mapStart={0}

@@ -207,6 +207,72 @@ export const collections = [
   },
 ];
 
+export const tools = [
+  {
+    title: 'Care Tools and Accesories',
+    bannerImg:
+      'https://images.unsplash.com/photo-1605449669747-35d71b9436f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80',
+    items: [
+      {
+        name: 'Cu Watering Can',
+        featured: 401,
+        url: 'https://images.unsplash.com/photo-1497990571654-77aa8ec36038?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdhcmRlbmluZyUyMHRvb2xzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: [28],
+        new: true,
+        sizes: ['One Size'],
+        color: ['copper'],
+      },
+      {
+        name: 'Potting Scoop',
+        featured: 402,
+        url: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyZGVuaW5nJTIwdG9vbHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: [23],
+        new: false,
+        sizes: ['One Size'],
+        color: ['green'],
+      },
+      {
+        name: 'Pruning Shears',
+        featured: 403,
+        url: 'https://images.unsplash.com/photo-1581078000759-ea6753bc3e13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyZGVuaW5nJTIwc2hlYXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: [33],
+        new: false,
+        sizes: ['One Size'],
+        color: ['slate'],
+      },
+      {
+        name: 'Gardening Gloves',
+        featured: 404,
+        url: 'https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FyZGVuaW5nJTIwZ2xvdmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: [23],
+        new: false,
+        sizes: ['Small', 'Medium'],
+        color: ['camel'],
+      },
+      {
+        name: 'Planter with Drainage',
+        featured: 405,
+        url: 'https://images.unsplash.com/photo-1621274220348-41dc235ff439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHBsYW50ZXIlMjBwb3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: [28],
+        new: false,
+        sizes: ['Medium'],
+        color: ['white'],
+      },
+      {
+        name: 'Speckled Planter',
+        featured: 406,
+        url: 'https://images.unsplash.com/photo-1642563850068-fef7eef30049?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fHBsYW50ZXIlMjBwb3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: [58],
+        new: true,
+        sizes: ['X-Large'],
+        color: ['white', 'black'],
+      },
+    ],
+    action: 'Shop Now ⟶',
+    url: 'tools',
+  },
+];
+
 export const guides = [
   {
     title: 'Care Guides',

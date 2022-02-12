@@ -21,15 +21,14 @@ const SearchNav = (props) => {
           </button>
         </div>
         <div className="filter-categories">
-          {filters.map((filterType, idx) => (
-            <div className="filter-type" key={idx}>
+          {window.location.pathname.includes('tools') ? (
+            <div className="filter-type">
               <h3 className="filter-title" onClick={toggleFilterList}>
-                {filterType.title}
+                {filters[2].title}
                 <DownIcon />
               </h3>
-
               <ul className="filter-list">
-                {filterType.options.map((option, idx) => (
+                {filters[2].options.map((option, idx) => (
                   <li className="filter-option" key={idx}>
                     <input
                       type="checkbox"
@@ -41,7 +40,29 @@ const SearchNav = (props) => {
                 ))}
               </ul>
             </div>
-          ))}
+          ) : (
+            filters.map((filterType, idx) => (
+              <div className="filter-type" key={idx}>
+                <h3 className="filter-title" onClick={toggleFilterList}>
+                  {filterType.title}
+                  <DownIcon />
+                </h3>
+
+                <ul className="filter-list">
+                  {filterType.options.map((option, idx) => (
+                    <li className="filter-option" key={idx}>
+                      <input
+                        type="checkbox"
+                        name={`` + option[0] + idx}
+                        id={`` + option[0] + idx}
+                      />
+                      <label htmlFor={`` + option[0] + idx}>{option}</label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          )}
         </div>
 
         <div className="filter-confirm">

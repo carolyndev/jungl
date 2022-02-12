@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { checkSafariMobile } from '../helpers/functions';
 import { ReactComponent as BagIcon } from '../images/svgs/bag.svg';
+import { removeScrollBlock } from '../helpers/functions';
 
 const Header = (props) => {
   const {
@@ -13,14 +14,21 @@ const Header = (props) => {
     numItems,
   } = props;
 
-  const hamburgerBtn = useRef(null);
+  const [navMenu, setNavMenu] = useState(false);
+
+  useEffect(() => {
+    if (!navMenu) {
+      removeScrollBlock();
+    }
+  }, [navMenu]);
+
+  // const hamburgerBtn = useRef(null);
   const toggleMenu = (e) => {
     if (e.key === 'Enter' || e.type === 'click') {
-      hamburgerBtn.current.classList.toggle('open');
-      hamburgerBtn.current.nextElementSibling.classList.toggle('open');
-      document.body.classList.toggle('open');
-      document.documentElement.classList.toggle('open');
+      setNavMenu(!navMenu);
       checkSafariMobile();
+      document.body.classList.add('open');
+      document.documentElement.classList.add('open');
     } else return;
   };
 
@@ -28,8 +36,8 @@ const Header = (props) => {
     <header>
       <nav>
         <div
-          ref={hamburgerBtn}
-          className="hamburger"
+          // ref={hamburgerBtn}
+          className={'hamburger ' + (navMenu ? 'open' : '')}
           onClick={toggleMenu}
           onKeyDown={toggleMenu}
           role="menu"
@@ -39,14 +47,18 @@ const Header = (props) => {
           <span></span>
           <span></span>
         </div>
-        <div className="hamburger-menu">
+        <div className={'hamburger-menu ' + (navMenu ? 'open' : '')}>
           <ul className="menu-links menu-nav">
             <li>
-              <Link to="./shop" onClick={toggleMenu} onKeyDown={toggleMenu}>
+              <Link to="/shop" onClick={toggleMenu} onKeyDown={toggleMenu}>
                 Shop Plants
               </Link>
             </li>
-            <li>Care Tools & Accessories</li>
+            <li>
+              <Link to="/tools" onClick={toggleMenu} onKeyDown={toggleMenu}>
+                Care Tools & Accessories
+              </Link>
+            </li>
             <li>Gifts</li>
             <li>Subscription</li>
           </ul>
@@ -63,9 +75,11 @@ const Header = (props) => {
         </div>
         <ul className="nav-links">
           <li>
-            <Link to="./shop">Shop Plants</Link>
+            <Link to="/shop">Shop Plants</Link>
           </li>
-          <li>Care Tools</li>
+          <li>
+            <Link to="/tools">Care Tools</Link>
+          </li>
           <li>Gifts</li>
           <li>Subscription</li>
         </ul>

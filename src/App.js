@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import ProductSearch from './pages/ProductSearch';
 import ProductPage from './pages/ProductPage';
 import CartSide from './components/CartSide';
-import { collections, guides, allProducts } from './helpers/data';
+import { collections, guides, allProducts, tools } from './helpers/data';
 import { removeScrollBlock } from './helpers/functions';
 
 const App = () => {
@@ -129,6 +129,22 @@ const App = () => {
               element={
                 <ProductSearch
                   category={allProducts[0]}
+                  selected={selected}
+                  setSelected={setSelected}
+                  itemToAdd={itemToAdd}
+                  setItemToAdd={setItemToAdd}
+                  cartSideOpen={cartSideOpen}
+                  setCartSideOpen={setCartSideOpen}
+                />
+              }
+            />
+
+            <Route
+              exact
+              path={'/tools'}
+              element={
+                <ProductSearch
+                  category={tools[0]}
                   selected={selected}
                   setSelected={setSelected}
                   itemToAdd={itemToAdd}

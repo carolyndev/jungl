@@ -60,12 +60,21 @@ const CartItem = (props) => {
           }
         >
           <h3>
-            {item.name} - {item.size}
+            {item.name}
             <span>${item.unitPrice * item.quantity}</span>
           </h3>
 
-          <div className="cart-item-color">
-            <p>{item.color}</p>
+          <div
+            className={
+              window.location.pathname.includes('cart')
+                ? 'cart-page-color'
+                : 'cart-item-color'
+            }
+          >
+            <p>
+              {item.size} / {item.color}
+              <span className={'color-custom color-' + item.color}></span>
+            </p>
           </div>
         </div>
 

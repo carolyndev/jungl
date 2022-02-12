@@ -16,6 +16,7 @@ const Select = (props) => {
         <option value="low">Sort by Price: Low to High</option>
         <option value="high">Sort by Price: High to Low</option>
       </select>
+
       <button className="filterBtn" onClick={toggleFilterMenu}>
         <FilterIcon />
       </button>

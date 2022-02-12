@@ -16,6 +16,7 @@ const CartSide = (props) => {
   } = props;
 
   const cartRef = useRef(null);
+  const cartSideRef = useRef(null);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -25,13 +26,21 @@ const CartSide = (props) => {
   }, []);
 
   const handleClickOutside = (e) => {
-    if (cartRef.current && !cartRef.current.contains(e.target)) {
+    if (
+      cartRef.current &&
+      !cartRef.current.contains(e.target) &&
+      cartSideRef.current.contains(e.target)
+    ) {
+      console.log('close cart side');
       closeCartSide();
     }
   };
 
   return (
-    <div className={'cart-sidebar-container ' + (cartSideOpen ? 'open' : '')}>
+    <div
+      ref={cartSideRef}
+      className={'cart-sidebar-container ' + (cartSideOpen ? 'open' : '')}
+    >
       <div
         ref={cartRef}
         className={'cart-sidebar ' + (cartSideOpen ? 'open' : '')}
