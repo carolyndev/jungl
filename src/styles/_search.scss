@@ -21,7 +21,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 
   @include breakpoints-up(medium) {
     flex-direction: row;
@@ -36,6 +36,14 @@
     }
   }
 }
+.category-display {
+  width: 100%;
+}
+.display-qty {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  // font-family: $labels;
+}
 
 .category-content {
   @include breakpoints-up(medium) {
@@ -43,6 +51,7 @@
     position: relative;
   }
 }
+
 // select menu
 .searchMenu {
   display: flex;
@@ -268,7 +277,7 @@
 .filter-confirm {
   height: 3.75rem;
   padding-top: 1.5rem;
-  margin: auto 0 3rem;
+  margin: auto 0 5rem;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -291,10 +300,6 @@
         background-color: $gray;
         border: 1px solid $green-md;
       }
-
-      @include breakpoints-up(medium) {
-        display: none;
-      }
     }
 
     &:last-of-type {
@@ -304,17 +309,20 @@
       &:hover {
         filter: brightness(1.5);
       }
+
+      @include breakpoints-up(medium) {
+        margin-bottom: 1rem;
+      }
     }
 
     @include breakpoints-up(medium) {
-      // padding: 0.5rem;
       width: 100%;
     }
   }
 
   @include breakpoints-up(medium) {
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin: 1rem 0 0;
     padding-top: 0;
     height: auto;
@@ -354,5 +362,23 @@
 
   @include breakpoints-up(medium) {
     margin: 0 3rem;
+  }
+}
+
+.no-matches {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+
+  svg {
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
   }
 }

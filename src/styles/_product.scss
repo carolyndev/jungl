@@ -198,6 +198,12 @@ h3 {
   &.color-black {
     background-color: $black;
   }
+  &.color-canary {
+    background-color: #eece07;
+  }
+  &.color-robin {
+    background-color: #07f2f2;
+  }
 }
 
 .product-size {
@@ -212,6 +218,7 @@ h3 {
     display: inline-block;
     position: relative;
     margin-right: 1.5rem;
+    margin-bottom: 1rem;
     font-family: $labels;
     font-size: 1rem;
   }

@@ -82,13 +82,22 @@ const CartSide = (props) => {
           </p>
 
           {cartItems.length > 0 ? (
-            <Link
-              to="/checkout"
-              className="button-primary"
-              onClick={closeCartSide}
-            >
-              Checkout
-            </Link>
+            <>
+              <Link
+                to="/cart"
+                onClick={closeCartSide}
+                className="cart-view-details"
+              >
+                View cart details ⟶
+              </Link>
+              <Link
+                to="/checkout"
+                className="button-primary"
+                onClick={closeCartSide}
+              >
+                Checkout
+              </Link>
+            </>
           ) : (
             <></>
           )}

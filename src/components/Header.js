@@ -32,6 +32,12 @@ const Header = (props) => {
     } else return;
   };
 
+  // const refreshIfHome = () => {
+  //   if (window.location.pathname === '/') {
+  //     console.log('home');
+  //   }
+  // };
+
   return (
     <header>
       <nav>
@@ -71,7 +77,8 @@ const Header = (props) => {
         </div>
 
         <div className="logo">
-          <Link to="/">jungl</Link>
+          <a href="/">jungl</a>
+          {/* <Link to="/"></Link> */}
         </div>
         <ul className="nav-links">
           <li>
