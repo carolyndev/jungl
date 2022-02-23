@@ -18,24 +18,15 @@ const Header = (props) => {
 
   const [navMenu, setNavMenu] = useState(false);
 
-  // useEffect(() => {
-  //   console.log(navMenu);
-  //   if (!navMenu) {
-  //     removeScrollBlock();
-  //   }
-  // }, [navMenu]);
-
-  // useEffect(() => {
-
-  // }, [hideMenus]);
+  useEffect(() => {
+    document.body.classList.toggle('open');
+    document.documentElement.classList.toggle('open');
+    checkSafariMobile();
+  }, [navMenu]);
 
   const toggleMenu = (e) => {
     if (e.key === 'Enter' || e.type === 'click') {
-      console.log(navMenu);
       setNavMenu(!navMenu);
-      document.body.classList.toggle('open');
-      document.documentElement.classList.toggle('open');
-      checkSafariMobile();
     }
   };
 

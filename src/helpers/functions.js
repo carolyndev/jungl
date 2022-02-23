@@ -9,20 +9,17 @@ export const toggleFooterList = (e) => {
 };
 
 export const checkSafariMobile = () => {
-  // if (isSafari && isIphone && document.body.classList.contains('open')) {
-  if (document.body.classList.contains('open')) {
+  if (isSafari && isIphone && document.body.classList.contains('open')) {
     document.addEventListener('touchmove', (e) => e.preventDefault(), {
       passive: false,
     });
 
     // document.ontouchmove = (e) => e.preventDefault();
-    console.log('touchmove false');
   } else {
     document.addEventListener('touchmove', (e) => true, {
       passive: false,
     });
     // document.ontouchmove = (e) => true;
-    console.log('touchmove true');
   }
 };
 
