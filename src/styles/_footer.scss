@@ -41,7 +41,12 @@ footer {
     font-size: 0.75rem;
     margin-top: 0.5rem;
   }
+
+  &.footer-checkout {
+    margin-top: 0;
+  }
 }
+
 .footer-inner {
   @include breakpoints-up(medium) {
     display: flex;
@@ -224,9 +229,5 @@ footer {
       background-color: $gray;
       cursor: pointer;
     }
-  }
-
-  @include breakpoints-up(medium) {
-    // margin-top: 2rem;
   }
 }

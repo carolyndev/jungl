@@ -1,0 +1,294 @@
+.checkout-nav {
+  background-color: $green-md;
+  position: static;
+
+  .logo {
+    text-align: left;
+    margin-left: 1rem;
+  }
+  a {
+    color: $white;
+  }
+}
+
+.checkout-container {
+  margin: 3rem 1rem 3rem;
+
+  @include breakpoints-up(medium) {
+    margin: 4rem auto 0rem;
+    max-width: clamp(1rem, 75vw, 115rem);
+  }
+}
+
+.checkout-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 35rem;
+  margin: 0 auto;
+
+  @include breakpoints-up(large) {
+    // width: calc(66% - 2rem);
+    flex-direction: row-reverse;
+    max-width: initial;
+  }
+}
+
+.checkout-details {
+  @include breakpoints-up(large) {
+    display: flex;
+    flex-direction: column;
+    width: calc(40vw - 3rem);
+  }
+}
+
+.checkout-progress {
+  font-family: $labels;
+  margin: 0 auto 2rem;
+  max-width: 35rem;
+
+  ul {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  li {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+
+    &:not(:last-of-type) {
+      margin-right: 0.5rem;
+    }
+
+    &:nth-of-type(2) {
+      font-weight: 900;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0.15rem;
+    }
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @include breakpoints-up(large) {
+    max-width: initial;
+  }
+}
+
+.checkout-items {
+  border-bottom: 1px solid $tan;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid $tan;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-family: $labels;
+
+    span {
+      font-size: 0.875rem;
+      font-weight: normal;
+    }
+  }
+
+  .cart-item {
+    border: none;
+    padding: 0;
+
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.checkout-image {
+  width: 3rem;
+  height: 4.5rem;
+  object-fit: cover;
+}
+
+.checkout-info {
+  justify-content: center;
+}
+
+.checkout-actions {
+  display: none;
+}
+
+.checkout-contact {
+  h2 {
+    font-size: 1.25rem;
+    font-family: $labels;
+  }
+}
+
+.checkout-shipping {
+  h2 {
+    font-size: 1.25rem;
+    font-family: $labels;
+  }
+  display: flex;
+  flex-direction: column;
+
+  .input-section {
+    display: flex;
+
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .contact-address {
+    flex-direction: column;
+  }
+}
+
+.contact-name {
+  .input-div {
+    flex-grow: 1;
+
+    &:first-of-type {
+      margin-right: 1rem;
+    }
+  }
+  input {
+    width: 100%;
+  }
+}
+
+.contact-address {
+  input {
+    width: 100%;
+  }
+}
+
+.contact-postal {
+  .input-div {
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.checkout-div {
+  width: 100%;
+  font-family: $labels;
+  margin-bottom: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-family: $labels;
+  }
+
+  .cart-page-summary {
+    margin-bottom: 3rem;
+  }
+}
+
+.input-div {
+  position: relative;
+
+  &:focus-within {
+    label {
+      opacity: 1;
+      transform: translateY(-50%);
+      // transition: opacity 200ms ease, tranform 200ms ease;
+    }
+    input::placeholder {
+      opacity: 0;
+    }
+  }
+
+  label {
+    z-index: 1;
+    position: absolute;
+    left: 0.5em;
+    top: 0;
+    padding: 0 0.5rem;
+    color: hsl(0, 0%, 50%);
+    background-color: $white;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  input {
+    height: 2.5rem;
+    border: 1px solid $gray;
+    border-radius: 4px;
+    padding: 0.75em 1rem;
+    font-size: 1rem;
+    color: $green;
+
+    &::placeholder {
+      color: hsl(0, 0%, 50%);
+      font-family: $labels;
+    }
+  }
+}
+
+.checkout-user {
+  @include breakpoints-up(large) {
+    width: 100%;
+    padding-right: clamp(4rem, 5vw, 5vw);
+  }
+}
+
+.checkout-confirm {
+  display: flex;
+  flex-direction: column-reverse;
+
+  .return-to-cart {
+    color: $green-md;
+    font-family: $labels;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  a.button-primary {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include breakpoints-up(medium) {
+      width: fit-content;
+      max-width: 18rem;
+      margin-bottom: 0;
+    }
+  }
+
+  @include breakpoints-up(medium) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 35rem;
+    margin: 0 auto;
+  }
+
+  @include breakpoints-up(large) {
+    max-width: 100%;
+    margin: 0 auto 0 0;
+  }
+}
+
+footer.footer-checkout {
+  color: $green;
+  background: $white;
+}

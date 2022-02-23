@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CartItem = (props) => {
-  const { item, cartItems, setCartItems } = props;
+  const { item, cartItems, setCartItems, showMenus, setShowMenus } = props;
 
   const subtractOne = (e) => {
     if (item.quantity === 1) {
@@ -45,13 +45,15 @@ const CartItem = (props) => {
         className={
           window.location.pathname.includes('cart')
             ? 'cart-page-image'
+            : !showMenus
+            ? 'checkout-image'
             : 'cart-item-image'
         }
         src={item.url}
         alt={item.name}
       />
 
-      <div className="cart-item-info">
+      <div className={'cart-item-info ' + (showMenus ? '' : 'checkout-info')}>
         <div
           className={
             window.location.pathname.includes('cart')
@@ -82,18 +84,22 @@ const CartItem = (props) => {
           className={
             window.location.pathname.includes('cart')
               ? 'cart-page-actions'
-              : 'cart-item-actions'
+              : showMenus === true
+              ? 'cart-item-actions'
+              : 'checkout-actions'
           }
         >
-          <div className="cart-item-quantity">
-            <button onClick={subtractOne}>-</button>
-            <p>{item.quantity}</p>
-            <button onClick={addOne}>+</button>
-          </div>
+          <>
+            <div className="cart-item-quantity">
+              <button onClick={subtractOne}>-</button>
+              <p>{item.quantity}</p>
+              <button onClick={addOne}>+</button>
+            </div>
 
-          <div className="cart-item-remove">
-            <button onClick={removeItem}>remove</button>
-          </div>
+            <div className="cart-item-remove">
+              <button onClick={removeItem}>remove</button>
+            </div>
+          </>
         </div>
       </div>
     </div>

@@ -212,6 +212,11 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+
+    svg {
+      color: $green;
+    }
+
     @include breakpoints-up(medium) {
       display: none;
       pointer-events: none;
@@ -277,7 +282,7 @@
 .filter-confirm {
   height: 3.75rem;
   padding-top: 1.5rem;
-  margin: auto 0 5rem;
+  margin: auto 0 6.5rem;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -286,7 +291,7 @@
 
   .confirm-btn {
     font-family: $labels;
-    padding: 1rem 1.5rem;
+    padding: 1rem clamp(0.5rem, 4vw, 1.5rem);
     cursor: pointer;
     border-radius: 2rem;
     border: 1px solid $green-md;

@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
-import CartPage from './pages/CartPage';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProductSearch from './pages/ProductSearch';
 import ProductPage from './pages/ProductPage';
 import CartSide from './components/CartSide';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 import { collections, guides, allProducts, tools } from './helpers/data';
 import { removeScrollBlock } from './helpers/functions';
 
@@ -19,6 +20,7 @@ const App = () => {
   const [cartSideOpen, setCartSideOpen] = useState(false);
   const [cartTotal, setCartTotal] = useState(0);
   const [numItems, setNumItems] = useState(0);
+  const [showMenus, setShowMenus] = useState(true);
 
   useEffect(() => {
     let totalItems = 0;
@@ -30,9 +32,7 @@ const App = () => {
 
   useEffect(() => {
     let arr = [];
-    cartItems.map((item) => {
-      arr.push(item.quantity * item.unitPrice);
-    });
+    cartItems.map((item) => arr.push(item.quantity * item.unitPrice));
     let sum = arr.reduce((prev, a) => prev + a, 0);
     setCartTotal(sum);
   }, [cartItems]);
@@ -103,6 +103,8 @@ const App = () => {
           setCartSideOpen={setCartSideOpen}
           toggleCartSide={toggleCartSide}
           numItems={numItems}
+          showMenus={showMenus}
+          setShowMenus={setShowMenus}
         />
 
         <main>
@@ -190,6 +192,7 @@ const App = () => {
               }
             />
 
+            {/* product page */}
             <Route
               exact
               path={'/item/:featured'}
@@ -223,6 +226,7 @@ const App = () => {
               }
             />
 
+            {/* cart page */}
             <Route
               exact
               path={'/cart'}
@@ -239,6 +243,25 @@ const App = () => {
                   closeCartSide={closeCartSide}
                   cartTotal={cartTotal}
                   numItems={numItems}
+                  showMenus={showMenus}
+                  setShowMenus={setShowMenus}
+                />
+              }
+            />
+
+            {/* checkout page */}
+            <Route
+              exact
+              path={'/checkout'}
+              element={
+                <CheckoutPage
+                  closeCartSide={closeCartSide}
+                  showMenus={showMenus}
+                  setShowMenus={setShowMenus}
+                  cartItems={cartItems}
+                  setCartItems={setCartItems}
+                  numItems={numItems}
+                  cartTotal={cartTotal}
                 />
               }
             />
@@ -252,10 +275,12 @@ const App = () => {
             toggleCartSide={toggleCartSide}
             closeCartSide={closeCartSide}
             cartTotal={cartTotal}
+            showMenus={showMenus}
+            setShowMenus={setShowMenus}
           />
         </main>
 
-        <Footer />
+        <Footer showMenus={showMenus} setShowMenus={setShowMenus} />
       </Router>
     </>
   );

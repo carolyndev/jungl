@@ -13,6 +13,8 @@ const CartSide = (props) => {
     toggleCartSide,
     closeCartSide,
     cartTotal,
+    showMenus,
+    setShowMenus,
   } = props;
 
   const cartRef = useRef(null);
@@ -60,13 +62,15 @@ const CartSide = (props) => {
                 key={item.id}
                 cartItems={cartItems}
                 setCartItems={setCartItems}
+                showMenus={showMenus}
+                setShowMenus={setShowMenus}
               />
             ))}
           </div>
         ) : (
           <div className="cart-empty">
-            <h2>Your cart is empty</h2>
-            <p>Let's get you started</p>
+            <h2>Your cart is currently empty.</h2>
+            <p>Let's get you started!</p>
             <Link to="/shop" className="button-primary" onClick={closeCartSide}>
               Explore the jungl
             </Link>

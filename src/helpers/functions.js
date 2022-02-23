@@ -9,10 +9,20 @@ export const toggleFooterList = (e) => {
 };
 
 export const checkSafariMobile = () => {
-  if (isSafari && isIphone && document.body.classList.contains('open')) {
-    document.ontouchmove = (e) => e.preventDefault();
+  // if (isSafari && isIphone && document.body.classList.contains('open')) {
+  if (document.body.classList.contains('open')) {
+    document.addEventListener('touchmove', (e) => e.preventDefault(), {
+      passive: false,
+    });
+
+    // document.ontouchmove = (e) => e.preventDefault();
+    console.log('touchmove false');
   } else {
-    document.ontouchmove = (e) => true;
+    document.addEventListener('touchmove', (e) => true, {
+      passive: false,
+    });
+    // document.ontouchmove = (e) => true;
+    console.log('touchmove true');
   }
 };
 
@@ -20,3 +30,4 @@ export const removeScrollBlock = () => {
   document.body.classList.remove('open');
   document.documentElement.classList.remove('open');
 };
+console.log(document);
