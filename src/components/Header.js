@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { checkSafariMobile } from '../helpers/functions';
 import { ReactComponent as BagIcon } from '../images/svgs/bag.svg';
-import { removeScrollBlock } from '../helpers/functions';
+import { addScrollBlock, removeScrollBlock } from '../helpers/functions';
 
 const Header = (props) => {
   const {
@@ -19,8 +19,12 @@ const Header = (props) => {
   const [navMenu, setNavMenu] = useState(false);
 
   useEffect(() => {
-    document.body.classList.toggle('open');
-    document.documentElement.classList.toggle('open');
+    if (navMenu) {
+      addScrollBlock();
+    } else {
+      removeScrollBlock();
+    }
+
     checkSafariMobile();
   }, [navMenu]);
 

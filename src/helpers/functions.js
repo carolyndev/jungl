@@ -23,8 +23,11 @@ export const checkSafariMobile = () => {
   }
 };
 
+export const addScrollBlock = () => {
+  document.body.classList.add('open');
+  document.documentElement.classList.add('open');
+};
 export const removeScrollBlock = () => {
   document.body.classList.remove('open');
   document.documentElement.classList.remove('open');
 };
-console.log(document);
