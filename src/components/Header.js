@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { checkSafariMobile } from '../helpers/functions';
 import { ReactComponent as BagIcon } from '../images/svgs/bag.svg';
 import { addScrollBlock, removeScrollBlock } from '../helpers/functions';
 
@@ -24,8 +23,6 @@ const Header = (props) => {
     } else {
       removeScrollBlock();
     }
-
-    checkSafariMobile();
   }, [navMenu]);
 
   const toggleMenu = (e) => {
