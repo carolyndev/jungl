@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from '../components/CartItem';
+import AddressForm from '../components/AddressForm';
 import { ReactComponent as PlantIcon } from '../images/svgs/plant.svg';
 
 const CheckoutPage = (props) => {
   const {
     closeCartSide,
-    showMenus,
     setShowMenus,
     cartItems,
     setCartItems,
@@ -14,9 +14,26 @@ const CheckoutPage = (props) => {
     cartTotal,
   } = props;
 
+  const [addressSame, setAddressSame] = useState(false);
+
   useEffect(() => {
     setShowMenus(false);
   }, []);
+
+  useEffect(() => {
+    let billingFields = document.querySelector('.billing-fields');
+    if (addressSame) {
+      billingFields.style.display = 'none';
+    } else {
+      billingFields.style.display = 'block';
+    }
+  }, [addressSame]);
+
+  const toggleBillingAddress = (e) => {
+    if (e.key === 'Enter' || e.type === 'click') {
+      setAddressSame(!addressSame);
+    } else return;
+  };
 
   return (
     <div className="checkout-container">
@@ -111,119 +128,52 @@ const CheckoutPage = (props) => {
             </div>
           </div>
 
-          <div className="checkout-shipping checkout-div">
-            <h2>Shipping Information</h2>
-
-            <div className="contact-name input-section">
-              <div className="input-div">
-                <label htmlFor="contact-first">First name</label>
-                <input
-                  type="text"
-                  name="contact-first"
-                  id="contact-first"
-                  placeholder="First name"
-                  required
-                />
-              </div>
-
-              <div className="input-div">
-                <label htmlFor="contact-last">Last name</label>
-                <input
-                  type="text"
-                  name="contact-last"
-                  id="contact-last"
-                  placeholder="Last name"
-                  required
-                />
-              </div>
+          <AddressForm section="shipping" />
+          <AddressForm
+            section="billing"
+            toggleBillingAddress={toggleBillingAddress}
+          />
+          <div className="checkout-payment">
+            <div className="input-div input-section">
+              <label htmlFor="payment-number">Card number</label>
+              <input
+                type="text"
+                name="payment-number"
+                id="payment-number"
+                placeholder="Card number"
+                required
+              />
             </div>
 
-            <div className="contact-address input-section">
-              <div className="input-div">
-                <label htmlFor="contact-address1">Address</label>
-                <input
-                  type="text"
-                  name="contact-address1"
-                  id="contact-address1"
-                  placeholder="Address line 1"
-                  required
-                />
-              </div>
+            <div className="input-div input-section">
+              <label htmlFor="payment-name">Name on card</label>
+              <input
+                type="text"
+                name="payment-name"
+                id="payment-name"
+                placeholder="Name on card"
+                required
+              />
             </div>
 
-            <div className="contact-address input-section">
+            <div className="input-section">
               <div className="input-div">
-                <label htmlFor="contact-address2">Address 2</label>
+                <label htmlFor="payment-expire">Expiration Date</label>
                 <input
                   type="text"
-                  name="contact-address2"
-                  id="contact-address2"
-                  placeholder="Address line 2 (if applicable)"
-                />
-              </div>
-            </div>
-
-            <div className="contact-postal input-section">
-              <div className="input-div">
-                <label htmlFor="contact-city">City</label>
-                <input
-                  type="text"
-                  name="contact-city"
-                  id="contact-city"
-                  placeholder="City"
+                  name="payment-expire"
+                  id="payment-expire"
+                  placeholder="Expiration date MM/YY"
                   required
                 />
               </div>
-
               <div className="input-div">
-                <label htmlFor="contact-state">State</label>
+                <label htmlFor="payment-security">Security Code</label>
                 <input
                   type="text"
-                  name="contact-state"
-                  id="contact-state"
-                  placeholder="State"
-                  required
-                />
-              </div>
-
-              <div className="input-div">
-                <label htmlFor="contact-zip">ZIP code</label>
-                <input
-                  type="text"
-                  name="contact-zip"
-                  id="contact-zip"
-                  placeholder="ZIP"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="input-div">
-              <div className="contact-number input-section">
-                <label htmlFor="contact-phone">Phone number</label>
-                <input
-                  type="tel"
-                  name="contact-phone"
-                  id="contact-phone"
-                  placeholder="Phone number"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                  required
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="checkout-payment checkout-div">
-            <h2>Payment Information</h2>
-
-            <div className="payment-name input-section">
-              <div className="input-div">
-                <label htmlFor="contact-first">First name</label>
-                <input
-                  type="text"
-                  name="contact-first"
-                  id="contact-first"
-                  placeholder="First name"
+                  name="payment-security"
+                  id="payment-security"
+                  placeholder="Security code"
                   required
                 />
               </div>
