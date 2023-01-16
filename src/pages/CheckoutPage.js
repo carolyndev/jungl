@@ -102,7 +102,7 @@ const CheckoutPage = (props) => {
                   : `Spend $${
                       150 - cartTotal
                     } more to qualify for free standard shipping. `}
-                Taxes to be calculated at checkout.
+                Taxes calculated at checkout.
               </p>
 
               <p>

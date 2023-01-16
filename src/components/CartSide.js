@@ -82,7 +82,7 @@ const CartSide = (props) => {
             Subtotal: <span>${cartTotal}</span>
           </p>
           <p className="cart-free-ship">
-            Shipping and taxes to be calculated at checkout.
+            Shipping and taxes calculated at checkout.
           </p>
 
           {cartItems.length > 0 ? (
