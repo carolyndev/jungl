@@ -116,7 +116,7 @@ export const collections = [
         sizes: ['Small', 'Medium'],
       },
       {
-        id: ['207s', '207m'],
+        aliases: ['207s', '207m'],
         name: 'Mini Monstera',
         botanicalName: 'Rhaphidophora tetrasperma',
         tags: ['easy maintenance', 'low light'],
@@ -127,7 +127,7 @@ export const collections = [
         sizes: ['Small', 'Medium'],
       },
       {
-        id: ['208m'],
+        aliases: ['208m'],
         name: 'Prayer Plant',
         botanicalName: 'Maranta leuconeura var. erythroneura',
         tags: ['bright indirect', 'pet-friendly'],
@@ -147,7 +147,7 @@ export const collections = [
       'https://images.unsplash.com/photo-1530049478161-0780526964f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHBsYW50c3xlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60',
     items: [
       {
-        id: ['301l'],
+        aliases: ['301l'],
         name: 'Ficus Rubber Tree',
         botanicalName: 'Ficus elastica',
         tags: ['easy maintenance'],
@@ -158,7 +158,7 @@ export const collections = [
         sizes: ['Large'],
       },
       {
-        id: ['303s', '303m'],
+        aliases: ['303s', '303m'],
         name: `Bird's Nest Fern`,
         botanicalName: 'Asplenium nidus',
         tags: ['low light'],
@@ -169,7 +169,7 @@ export const collections = [
         sizes: ['Small', 'Medium'],
       },
       {
-        id: ['303s'],
+        aliases: ['303s'],
         name: 'Pilea peperomioides',
         botanicalName: 'Pilea peperomioides',
         tags: ['bright indirect', 'pet-friendly'],
@@ -180,7 +180,7 @@ export const collections = [
         sizes: ['Small'],
       },
       {
-        id: ['304m'],
+        aliases: ['304m'],
         name: 'ZZ Plant',
         botanicalName: 'Zamioculcas zamiifolia',
         tags: ['bright indirect', 'easy maintenance'],
@@ -191,7 +191,7 @@ export const collections = [
         sizes: ['Medium'],
       },
       {
-        id: ['305s', '305l'],
+        aliases: ['305s', '305l'],
         name: 'Parlor Palm',
         botanicalName: 'Chamaedorea elegans',
         tags: ['easy maintenance', 'air-purifying'],
@@ -341,7 +341,7 @@ export const allProducts = [
     title: 'Browse All',
     items: [
       {
-        id: ['101m', '101l', '101xl'],
+        aliases: ['101m', '101l', '101xl'],
         name: 'Umbrella Tree',
         botanicalName: 'Schefflera Arboricola',
         tags: ['easy maintenance', 'tree'],
@@ -352,7 +352,7 @@ export const allProducts = [
         sizes: ['Medium', 'Large', 'X-Large'],
       },
       {
-        id: ['102s', '102m'],
+        aliases: ['102s', '102m'],
         name: 'Philodendron Green',
         botanicalName: 'Philodendron cordatum',
         tags: ['easy maintenance'],
@@ -363,7 +363,7 @@ export const allProducts = [
         sizes: ['Small', 'Medium'],
       },
       {
-        id: ['103s', '103m'],
+        aliases: ['103s', '103m'],
         name: 'Golden Pothos',
         botanicalName: 'Epipremnum aureum',
         tags: ['easy maintenance', 'low light'],
@@ -374,7 +374,7 @@ export const allProducts = [
         sizes: ['Small', 'Medium'],
       },
       {
-        id: ['104m'],
+        aliases: ['104m'],
         name: 'Calathea Rattlesnake',
         botanicalName: 'Calathea lancifolia',
         tags: ['easy maintenance'],
@@ -385,7 +385,7 @@ export const allProducts = [
         sizes: ['Medium'],
       },
       {
-        id: ['106l'],
+        aliases: ['106l'],
         name: 'Sansevieria Moonshine',
         botanicalName: `Sansevieria trifasciata 'Moonshine'`,
         tags: ['easy maintenance', 'low light', 'air-purifying'],
@@ -396,7 +396,7 @@ export const allProducts = [
         sizes: ['Large'],
       },
       {
-        id: ['106m', '106l'],
+        aliases: ['106m', '106l'],
         name: 'Ficus Benjamina',
         botanicalName: `Ficus benjamina'`,
         tags: ['bright indirect', 'tree'],
@@ -405,9 +405,7 @@ export const allProducts = [
         price: [98, 158, 218],
         new: false,
         sizes: ['Medium', 'Large', 'X-Large'],
-      },
-      ...collections[0].items,
-      ...collections[1].items,
+      }
     ],
   },
 ];
