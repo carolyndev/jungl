@@ -3,6 +3,7 @@ const router = express.Router();
 const {plant} = require('../controllers/');
 
 router.get('/api', (req, res) => {
+	res.header("Access-Control-Allow-Origin", "*");
 	res.status(200).send({express: 'YOUR EXPRESS BACKEND IS CONNECTED'});
 });
 
