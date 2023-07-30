@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "functions:build": "netlify functions:build ./server/netlify/functions --src ./server/netlify/functions",
+    "prod": "npm run build; npm run functions:build"
   },
   "eslintConfig": {
     "extends": [

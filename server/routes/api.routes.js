@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const cors = require("cors");
 const {plant} = require('../controllers/');
+const {CORS_OPTIONS} = require('../constants');
+
+router.use(cors(CORS_OPTIONS));
 
 router.get('/api', (req, res) => {
-	res.header("Access-Control-Allow-Origin", "*");
 	res.status(200).send({express: 'YOUR EXPRESS BACKEND IS CONNECTED'});
 });
 
