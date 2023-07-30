@@ -3,12 +3,12 @@ mongoose.set("strictQuery", false);
 const express = require('express');
 const router = express.Router();
 const app = express();
-const connectDb = require('../../connect');
+const connectDb = require('../../server/connect');
 const cors = require('cors');
 const serverless = require('serverless-http');
 
 const models = {
-	Plant: require('../../db/plant.model')
+	Plant: require('../../server/db/plant.model')
 };
 
 const corsOptions = {
@@ -21,6 +21,6 @@ connectDb();
 
 router.use(cors(corsOptions));
 router.use(express.json());
-app.use('/.netlify/functions/', require('../../routes/api.routes'));
+app.use('/.netlify/functions/', require('../../server/routes/api.routes'));
 
 module.exports.handler = serverless(app);
