@@ -1,4 +1,4 @@
-const apiBase = process.env.API_BASE || 'http://localhost:9999'
+const apiBase = process.env.API_BASE || 'https://develop--jungl.netlify.app'
 
 export const functionsBase = () => {
 	return `${apiBase}/.netlify/functions/api`
