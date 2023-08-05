@@ -7,16 +7,21 @@ const config = {
 	useUnifiedTopology: true,
 	serverApi: ServerApiVersion.v1
 };
-// comment
-function connectDb() {
-	mongoose.set("strictQuery", false);
-	mongoose.connect(URI, config);
 
-	const db = mongoose.connection;
-	db.on("error", console.error.bind(console, "connection error: "));
-	db.once("open", function () {
-		console.log("Connected successfully");
-	});
+async function connectDb() {
+	mongoose.set("strictQuery", false);
+
+	try {
+		await mongoose.connect(URI, config);
+
+		const db = mongoose.connection;
+		db.on("error", console.error.bind(console, "connection error: "));
+		db.once("open", function () {
+			console.log("Connected successfully");
+		});
+	} catch (err) {
+		console.error(err);
+	}
 };
 
 module.exports = connectDb;
