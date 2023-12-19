@@ -6,16 +6,14 @@ const PlantSchema = new Schema({
 		name: {type: String, required: true},
 		id: {type: ObjectId, required: true},
 		aliases: {type: [String]},
-
 		tags: {type: [String]},
-		featured: {type: Number},
 		price: {type: Number},
 		status: {type: String, enum: ['new', 'promo', 'best']},
 		size: {type: String},
 	},
 	{
 		usePushEach: true,
-		timestamps: {createdAt: 'createdAt', updatedAt: 'updatedAt'}
+		timestamps: {created: 'createdAt', updated: 'updatedAt'}
 	},
 );
 

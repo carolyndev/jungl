@@ -9,21 +9,24 @@ const Home = (props) => {
 	const {selected, setSelected, itemToAdd, setItemToAdd} = props;
 	const [collections, setCollections] = useState([]);
 
-	useEffect(async () => {
-		await plantService.getPlants()
-			.then(response => {
-				if (response.status !== 200) return
-				setCollections(
-					[{
-						title: 'test title',
-						bannerImg:
-							'https://images.unsplash.com/photo-1605449669747-35d71b9436f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80',
-						items: response.data.plants,
-						action: 'Shop Now ⟶',
-						url: 'tools',
-					}]
-				);
-			});
+	useEffect(() => {
+		async function getPlants() {
+			await plantService.getPlants({limit: 4, status: "best"});
+		}
+
+		getPlants().then(response => {
+			if (response.status !== 200) return;
+			setCollections(
+				[{
+					title: 'Best Sellers',
+					bannerImg:
+						'https://images.unsplash.com/photo-1605449669747-35d71b9436f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80',
+					items: response.data.plants,
+					action: 'Shop Now ⟶',
+					url: 'tools',
+				}]
+			);
+		});
 	}, []);
 
 	return (
