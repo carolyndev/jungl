@@ -29,6 +29,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "dev": "next dev",
+    "tsc": "tsc --pretty noEmit",
     "functions:build": "netlify functions:build --src netlify/functions",
     "functions:serve": "netlify functions:serve"
   },
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "3.1.1"
+    "prettier": "3.1.1",
+    "typescript": "^5.3.3"
   }
 }

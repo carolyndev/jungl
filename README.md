@@ -30,6 +30,9 @@ Live site URL: [https://jungl.netlify.app/](https://jungl.netlify.app/)
 3. Run `npm start` to open the app in the development mode and view it in your browser. [[localhost:3000]](http://localhost:3000)
 4. Run `npm run build` to create your optimized production build.
 
+### Run Checks
+- Typings: `npm run tsc`
+
 ### Project Goals and Challenges
 
 ### Continued development
