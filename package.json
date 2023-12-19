@@ -16,8 +16,9 @@
     "gh-pages": "^3.2.3",
     "mongodb": "^5.7.0",
     "mongoose": "^7.4.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "sass": "^1.48.0",
@@ -27,10 +28,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "next dev",
     "functions:build": "netlify functions:build --src netlify/functions",
     "functions:serve": "netlify functions:serve"
   },
