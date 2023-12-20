@@ -34,3 +34,4 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 /netlify/functions/api.zip
+/next-env.d.ts
