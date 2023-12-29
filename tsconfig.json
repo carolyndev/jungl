@@ -2,15 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components": [
-        "components/*"
-      ],
-      "@features": [
-        "features/*"
-      ],
-      "@pages": [
-        "pages/*"
-      ]
+      "@api/*": ["api/*"],
+      "@constants/*": ["constants/*"],
+      "@components/*": ["components/*"],
+      "@features/*": ["features/*"],
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"],
     },
     "target": "es2015",
     "module": "esnext",
