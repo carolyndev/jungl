@@ -3,9 +3,13 @@ import { faBagShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import NavLink from '../Navlink/NavLink';
 import Link from 'next/link';
 import Input from '../../../../components/Input/Input';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import useItems from '@api/products/hooks/useItems';
 
 const NavBar = () => {
+  const [params, setParams] = useState({ search: 'mo' });
+  const { data: items } = useItems(params);
+
   const primaryNavItems = [
     {
       href: '/shop',
@@ -74,6 +78,7 @@ const NavBar = () => {
             <FontAwesomeIcon icon={faSearch} size="lg" />
           </button>
         }
+        onChange={(event) => setParams({ search: event.target.value })}
         ref={inputRef}
       />
     );
