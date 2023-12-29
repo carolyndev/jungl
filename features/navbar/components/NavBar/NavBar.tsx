@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import NavLink from '../Navlink/NavLink';
 import Link from 'next/link';
+import Input from '../../../../components/Input/Input';
+import { useRef } from 'react';
 
 const NavBar = () => {
   const primaryNavItems = [
@@ -29,7 +31,7 @@ const NavBar = () => {
 
   const secondaryNavItems = [
     {
-      icon: <FontAwesomeIcon icon={faSearch} size="lg"/>,
+      icon: <FontAwesomeIcon icon={faSearch} size="lg" />,
       id: 'search',
       onClick: () => console.log('search!'),
     },
@@ -63,7 +65,19 @@ const NavBar = () => {
       </ul>
     );
   };
-
+  const inputRef = useRef<HTMLInputElement>(null);
+  const searchInput = () => {
+    return (
+      <Input
+        endAdornment={
+          <button onClick={(event) => inputRef.current?.focus()}>
+            <FontAwesomeIcon icon={faSearch} size="lg" />
+          </button>
+        }
+        ref={inputRef}
+      />
+    );
+  };
   return (
     <header>
       <nav>
@@ -73,7 +87,13 @@ const NavBar = () => {
           </Link>
 
           {primaryNavLinks()}
-          {secondaryNavLinks()}
+
+          <div className="flex gap-3">
+            {searchInput()}
+            <button onClick={() => console.log('iopen cart!!')}>
+              <FontAwesomeIcon icon={faBagShopping} size="lg" />
+            </button>
+          </div>
         </div>
       </nav>
     </header>
