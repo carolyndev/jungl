@@ -5,10 +5,13 @@ import Link from 'next/link';
 import Input from '../../../../components/Input/Input';
 import { useRef, useState } from 'react';
 import useItems from '@api/products/hooks/useItems';
+import { useDebounce } from 'usehooks-ts';
+import { TItemsRequestParams } from '@api/products/types';
 
 const NavBar = () => {
-  const [params, setParams] = useState({ search: 'mo' });
-  const { data: items } = useItems(params);
+  const [params, setParams] = useState({ search: '' });
+  const debouncedParams = useDebounce<TItemsRequestParams>(params, 500);
+  const { data: items } = useItems(debouncedParams);
 
   const primaryNavItems = [
     {
@@ -56,31 +59,23 @@ const NavBar = () => {
     );
   };
 
-  const secondaryNavLinks = () => {
-    return (
-      <ul className="flex gap-4">
-        {secondaryNavItems.map((item) => {
-          return (
-            <li key={item.id} onClick={item.onClick}>
-              <button type="button">{item.icon}</button>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  };
   const inputRef = useRef<HTMLInputElement>(null);
   const searchInput = () => {
     return (
-      <Input
-        endAdornment={
-          <button onClick={(event) => inputRef.current?.focus()}>
-            <FontAwesomeIcon icon={faSearch} size="lg" />
-          </button>
-        }
-        onChange={(event) => setParams({ search: event.target.value })}
-        ref={inputRef}
-      />
+      <div className="rounded border-primary-darkGreen">
+        <Input
+          endAdornment={
+            <button onClick={(event) => inputRef.current?.focus()}>
+              <FontAwesomeIcon icon={faSearch} size="lg" />
+            </button>
+          }
+          onChange={(event) => setParams({ search: event.target.value })}
+          ref={inputRef}
+        />
+        {items?.plants?.map((item) => (
+          <li>{item.name}</li>
+        ))}
+      </div>
     );
   };
   return (
