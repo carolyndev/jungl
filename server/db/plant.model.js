@@ -2,14 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const {ObjectId} = Schema.Types;
 
+const PlantVariationSchema = new Schema({
+	price: {type: Number},
+	variant: {type: String, enum: ['os', 'small', 'medium', 'large', 'x-large']},
+})
+
 const PlantSchema = new Schema({
+		_id: {type: ObjectId, required: true},
 		name: {type: String, required: true},
-		id: {type: ObjectId, required: true},
-		aliases: {type: [String]},
-		tags: {type: [String]},
-		price: {type: Number},
+		botanicalName: {type: String},
 		status: {type: String, enum: ['new', 'promo', 'best']},
-		size: {type: String},
+		tags: {type: [String]},
+		url: {type: String},
+		variations: {type: [PlantVariationSchema]},
 	},
 	{
 		usePushEach: true,

@@ -4,14 +4,14 @@ import NavLink from '../Navlink/NavLink';
 import Link from 'next/link';
 import Input from '../../../../components/Input/Input';
 import { useRef, useState } from 'react';
-import useItems from '@api/products/hooks/useItems';
+import usePlants from '@api/plants/hooks/usePlants';
 import { useDebounce } from 'usehooks-ts';
-import { TItemsRequestParams } from '@api/products/types';
+import { TPlantsRequestParams } from 'api/plants/types';
 
 const NavBar = () => {
   const [params, setParams] = useState({ search: '' });
-  const debouncedParams = useDebounce<TItemsRequestParams>(params, 500);
-  const { data: items } = useItems(debouncedParams);
+  const debouncedParams = useDebounce<TPlantsRequestParams>(params, 500);
+  const { data: items } = usePlants(debouncedParams);
 
   const primaryNavItems = [
     {
@@ -90,7 +90,7 @@ const NavBar = () => {
 
           <div className="flex gap-3">
             {searchInput()}
-            <button onClick={() => console.log('iopen cart!!')}>
+            <button onClick={() => console.log('i open cart!!')}>
               <FontAwesomeIcon icon={faBagShopping} size="lg" />
             </button>
           </div>
