@@ -9,8 +9,8 @@ const Input = forwardRef<HTMLInputElement, Props>(
   ({ className, endAdornment, startAdornment, ...props }: Props, ref) => {
     const defaultClasses =
       'rounded border-[1px] border-grayscale-lightGray p-2';
-    const focusClasses = 'focus:outline-primary-lightgreen'
-    const inputClasses = twMerge(className, defaultClasses, focusClasses);
+    const focusClasses = 'focus:outline-primary-lightgreen';
+    const inputClasses = twMerge(defaultClasses, focusClasses, className);
 
     return (
       <div className="relative">

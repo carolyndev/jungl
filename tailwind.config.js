@@ -18,8 +18,8 @@ module.exports = {
         darkGreen: '#173932',
         green: '#0d402a',
         lightgreen: '#6dac7b',
-        tan: '#E8E3E3'
       },
+      tan: '#E8E3E3',
       grayscale: {
         black: '#333333',
         lightGray: '#E0E0E0',

@@ -1,16 +1,16 @@
+import { useState } from 'react';
+import { useDebounce } from 'usehooks-ts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
-import NavLink from '../Navlink/NavLink';
 import Link from 'next/link';
-import Input from '../../../../components/Input/Input';
-import { useRef, useState } from 'react';
 import usePlants from '@api/plants/hooks/usePlants';
-import { useDebounce } from 'usehooks-ts';
 import { TPlantsRequestParams } from 'api/plants/types';
+import NavLink from '../Navlink/NavLink';
+import Autocomplete from '@components/Autocomplete/Autocomplete';
 
 const NavBar = () => {
-  const [params, setParams] = useState({ search: '' });
-  const debouncedParams = useDebounce<TPlantsRequestParams>(params, 500);
+  const [search, setSearch] = useState('');
+  const debouncedParams = useDebounce<TPlantsRequestParams>({ search }, 500);
   const { data: items } = usePlants(debouncedParams);
 
   const primaryNavItems = [
@@ -59,23 +59,13 @@ const NavBar = () => {
     );
   };
 
-  const inputRef = useRef<HTMLInputElement>(null);
   const searchInput = () => {
     return (
-      <div className="rounded border-primary-darkGreen">
-        <Input
-          endAdornment={
-            <button onClick={(event) => inputRef.current?.focus()}>
-              <FontAwesomeIcon icon={faSearch} size="lg" />
-            </button>
-          }
-          onChange={(event) => setParams({ search: event.target.value })}
-          ref={inputRef}
-        />
-        {items?.plants?.map((item) => (
-          <li>{item.name}</li>
-        ))}
-      </div>
+      <Autocomplete
+        setSearch={setSearch}
+        options={items?.plants || []}
+        isRedirectToProductPage
+      />
     );
   };
   return (

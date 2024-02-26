@@ -2,7 +2,7 @@ import { ProductStatus, TProductVariant } from '@api/products/types';
 
 export type TPlantId = string;
 
-export type TItem = {
+export type TPlant = {
   _id: TPlantId;
   botanicalName: string;
   name: string;
@@ -13,7 +13,7 @@ export type TItem = {
 };
 
 export type TPlantsResponse = {
-  plants: TItem[];
+  plants: TPlant[];
   total: number;
 };
 export type TPlantsRequestParams = {
